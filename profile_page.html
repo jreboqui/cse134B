@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+ .sidebar {
+     position: fixed;
+     width: 200px;
+     height: 100%;
+     background: #f7ddff;
+ }
+
+ .content {
+     margin-left: 200px;
+     height: 1000px;
+     width: auto;
+     position: relative;
+     background: #E1CEB1;
+     
+     z-index: 1;
+ }
+
+ table {
+    border-collapse: collapse;
+    border: 1px;
+    border-radius: 3px;
+
+ }
+
+th, td {
+    padding: 15px;
+}
+
+
+ .applied {
+    border: 1px solid #D7263D;
+    position: static;
+
+ }
+
+ .openings {
+    border: 1px solid #D7263D;
+    position: absolute;
+    top: 270px;
+
+ }
+
+ .openings a{
+  background: #D7263D;
+  border-radius: 3px;
+  color: #FFF;
+  display: inline-block;
+  margin: 15px 15px;
+  padding: 30px;
+  text-transform: uppercase;
+  text-decoration: none;
+
+ }
+
+
+ 
+ }
+</style>
+</head>
+<body>
+
+
+
+<div class="sidebar"> 
+<h1>Profile Page Here</h1>
+<img src="pic.jpg" alt="Kevin Pansawira" width="104" height="142">
+<p> <b>Kevin Pansawira</b> </p>
+
+<p> Status: <br>
+    School: <br>
+
+</p>
+
+
+<button onclick="location.href='edit_profile.html'" type="button">
+     Edit Profile</button>
+
+</div>
+
+<div class="content">
+     <div class="applied">
+        <h1> Some status here </h1>
+
+        <table>
+            <tr>
+                <th> Applied Position </th>
+                <th> Status </th>
+            </tr>
+            <tr>
+                <td> Amazon </td>
+                <td> Rejected </td>
+            </tr>
+            <tr> 
+                <td> Microsoft </td>
+                <td> Rejected </td>
+            </tr>
+            <tr> 
+                <td> Teradata </td>
+                <td> Ghosted </td>
+            </tr>
+    </div>
+</div>
+
+<div class="openings">
+        <h2>Openings</h2>
+        <a href="companyA.html" target="_self"> Company A </a>
+        <a href="companyB.html" target="_self"> Company B </a>
+        <a href="companyC.html" target="_self"> Company C </a>
+        <a href="companyD.html" target="_self"> Company D </a>
+</div>
+ 
+
+
+<!-- 
+
+<script>
+// Get the modal
+var modal = document.getElementById('id01');
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+</script> -->
+
+</body>
+</html>
