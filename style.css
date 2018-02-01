@@ -1,0 +1,97 @@
+body { 
+  margin: 0;
+  background-color: white;
+}
+
+.banner { 
+  padding: 30px; /* fills out the jumbotron */
+  background-color: #111;
+  height: 30%;
+   background: url('amazon-banner.PNG');
+   background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center top;
+}
+
+.open-jobs {
+  width:75%;
+  float: left;
+  height: 70%;
+  border-right: 1px solid black;
+}
+
+.extra {
+  width:24%;
+  height: 70%;
+  float: right;
+}
+/*
+.li-position: {
+    color: #555;
+    text-decoration: none;
+    background-color: #f5f5f5;
+    cursor: pointer;
+}*/
+
+.button {
+    /*background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+}
+
+.button-edit {
+  background-color: #008CBA; 
+  color: white;
+}
+
+.button-add {
+  background-color: #4CAF50; 
+  color: white;
+}
+
+.button-edit:hover {
+    background-color: white; 
+    color: black;
+    border: 2px solid #008CBA;
+}
+
+.button-add:hover {
+    background-color: white; 
+    color: black;
+    border: 2px solid #4CAF50;
+}
+
+.ul-photo-list {
+    -moz-column-count: 3;
+    -moz-column-gap: 5px;
+    -webkit-column-count: 3;
+    -webkit-column-gap: 5px;
+    column-count: 3;
+    column-gap: 5px;
+    list-style-type: none;
+}
+
+/*
+.banner {
+/*  width: 100%px; 
+  margin: 0 auto;  
+  padding: 0 15px; 
+  height:100%;
+  background: url('amazon-banner.PNG') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}*/
+
