@@ -14,13 +14,10 @@ body {
 }
 
 .open-jobs {
-  width:100%;
+  width:75%;
   float: left;
   height: 70%;
   border-right: 1px solid black;
-}
-
-
 }
 
 .extra {
