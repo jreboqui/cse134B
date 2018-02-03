@@ -1,11 +1,14 @@
+<!DOCTYPE html>
 <head>
+  <meta charset="UTF-8">
+  <title>New Job Posting</title>
   <link href='style.css' rel='stylesheet' type='text/css'>
 
-  <div class="banner">
-  </div>
 </head>
 
 <body>
+
+  	<div class="banner"></div>
 	<div class="new_job">
 		<form>
 			<label for="title">Job Title:</label>
@@ -18,13 +21,13 @@
 				<option value="austin">Austin, TX</option>
 			</select>
 
-			<label for"description">Job Description</label> <br>
+			<label for="description">Job Description</label> <br>
 
-			<textarea class="job-description" name="description">Enter job description here..</textarea> <br> <br>
+			<textarea class="job-description" id="description" name="description">Enter job description here..</textarea> <br> <br>
 
-			<label for"description">Requirements</label> <br>
+			<label for="reqs">Requirements</label> <br>
 
-			<textarea class="req" name="description"></textarea> <br> <br>
+			<textarea class="req" id="reqs" name="reqs"></textarea> <br> <br>
 
 			<input type="reset" value="Reset">
 			<button class=" button-cancel" type="button" style="float: left">Cancel</button>
