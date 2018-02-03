@@ -1,0 +1,68 @@
+/*Style for inbox.html*/
+.banner { 
+  background-color: aliceblue;
+  height: 6%;
+  border-bottom: 1px solid black;
+}
+
+.left-panel {
+  width:20%;
+  height: 100%;
+  background-color:aliceblue;
+  float: left;
+  border-right: 1px solid black;
+}
+
+.img-with-text {
+	padding-top: 3%;
+    text-align: justify;
+    width: 175;
+    height: 150;
+}
+
+.img-with-text img {
+    display: block;
+    margin: 0 auto;
+}
+
+.button-compose {
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 3%;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: #d9534f; 
+}
+
+.button-compose:hover {
+  background-color: #c64541; 
+}
+
+
+.right-panel {
+  width: 79%;
+  height: 100%;
+  float: right;
+  background-color: #FBF6D9;
+}
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+th {
+	border:none;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
