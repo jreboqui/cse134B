@@ -1,21 +1,28 @@
 <!DOCTYPE html>
+<<<<<<< HEAD
+=======
 <html>
+>>>>>>> 14f36d6f8be1ee26844017f2e6aa6ae80d474800
 <head>
   <meta charset="utf-8"/>
   <title> Apply Job Posting </title>
   <link href='style.css' rel='stylesheet' type='text/css'>
 
+<<<<<<< HEAD
+ 
 </head>
 
 <body>
    <div class="banner">
   </div>
+=======
 </head>
 
 <body>
   <div class="banner">
   </div>
 
+>>>>>>> 14f36d6f8be1ee26844017f2e6aa6ae80d474800
   <div class="open-jobs">
     <div style="padding-left: 1%">
       
@@ -23,6 +30,7 @@
         
        
       </p>
+      
     </div>
     <div style="padding-left:1%">
       <h2>SOFTWARE ENGINEERING INTERN 2018</h2>

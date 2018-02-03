@@ -3,6 +3,10 @@ body {
   background-color: white;
 }
 
+html,body{
+  height: 100%;
+}
+
 .banner { 
   padding: 30px; /* fills out the jumbotron */
   background-color: #111;
@@ -16,13 +20,7 @@ body {
 .open-jobs {
   width:75%;
   float: left;
-<<<<<<< HEAD
-  /*height: 100%;*/
-  border-right: 1px solid black;
-=======
-  height: 100%;
-  
->>>>>>> 01584cc94bbcc6d50d2b5e80609d6f711f0926f0
+  height: 100%; 
 }
 
 .extra {
