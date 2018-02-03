@@ -1,0 +1,133 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<style>
+.main{
+    width: 65%;
+    height: 1000px;
+    border-right: 1px solid black;
+    float: left;
+}   
+
+.sidebar{
+    width: 34%;
+    height: 1000px;
+    float: right;
+    padding-left: 10px;
+}
+
+.profile{
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    margin: 20px 20px;
+    padding: 20px;
+    border: 3px solid black;
+}
+
+.button-offer {
+  width: 20%;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: #3cd150; 
+}
+
+.button-offer:hover {
+  background-color: #28bb3c; 
+}
+
+.button-reject {
+  width: 20%;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: #d9534f; 
+}
+
+.button-reject:hover {
+  background-color: #c64541; 
+}
+
+.button-message {
+  width: 20%;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: #4341d4; 
+}
+
+.button-message:hover {
+  background-color: #162b9e; 
+}
+
+.button-board {
+  width: 20%;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: #0db0f0; 
+}
+
+.button-board:hover {
+    background-color: #088ec4;  
+}
+
+
+</style>
+</head>
+<body>
+    <div class="main">
+        <h1>Applicant Profile</h1>
+        <hr>
+        <div class="image">
+            <img src="usericon.png" alt="Image not found" width="150" height="150">
+        </div>
+        <h3>Name: Kevin Pansawira</h3>
+        <h3>School: UCSD</h3>
+        <h3>Planned Graduation Year: 2019</h3>
+        <h3>Address: 9500 Gilman Drive, La Jolla</h3>
+        <h3>Applied Positions:</h3>
+        <ul>
+            <li>Software Development Engineer Intern</li>
+            <li>Data Science Intern</li>
+            <li>UI Design Intern</li>
+        </ul>
+        <button type="button">Resume Link</button>
+        <h2>STATUS BAR GOES HERE</h2>
+
+
+        <button class="button-offer" type="button">Offer</button>
+        <button class="button-reject" type="button">Reject</button>
+        <button class="button-message" type="button">Message</button>
+        <br><br>
+        <button class="button-board" type="button">Invite to Board</button>
+    </div>
+
+    <div class="sidebar">
+        <h1>Other Applicants</h1>
+
+        <div class="profile">
+            <a href="profileA.html" target="_self">Profile A</a>   
+        </div>
+        <div class="profile">
+            <a href="profileB.html" target="_self">Profile B</a>   
+        </div>
+        <div class="profile">
+            <a href="profileC.html" target="_self">Profile C</a>   
+        </div>
+    </div>
+</body>
+</html>
