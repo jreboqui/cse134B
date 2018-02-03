@@ -97,24 +97,24 @@ section a {
   margin-bottom: 20px;
 
 }
-div#one {
+div#boxOne {
    
     height: 200px;
     padding: 10px 10px 10px 10px;
     float: left;
 }
-div#two {
+div#boxTwo {
     float: left;
     height: 200px;
      padding: 10px 10px 10px 10px;
 }
-div#three {
+div#boxThree {
     float: left;
     height: 200px;
      padding: 10px 10px 10px 10px;
     
 }
-div#four {
+div#boxFour {
     float: left;
     height: 200px;
      padding: 10px 10px 10px 10px;
