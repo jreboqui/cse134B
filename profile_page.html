@@ -20,17 +20,44 @@
      z-index: 1;
  }
 
+ body {
+
+    background: #f8f8ff;
+ }
+
  table {
-    border-collapse: collapse;
-    border: 1px;
-    border-radius: 3px;
+  width:100%;
+  table-layout: fixed;
+  background: linear-gradient(to right, #25c481, #25b7c4);
+   
 
  }
 
-th, td {
-    padding: 15px;
+ .table-header{
+  background: linear-gradient(to right, #448585, #25b7c4);
+ }
+
+.table-content{
+  height:300px;
+  overflow-x:auto;
+  margin-top: 0px;
+  border: 1px solid rgba(255,255,255,0.3);
 }
 
+th{
+  padding: 20px 15px;
+  text-align: left;
+  
+  color: #000000;
+  text-transform: uppercase;
+}
+td{
+  padding: 15px;
+  text-align: left;
+  vertical-align:middle;
+  color: #000;
+  border-bottom: solid 1px rgba(255,255,255,0.1);
+}
 
  .applied {
     padding: 5px;
@@ -38,11 +65,13 @@ th, td {
 
  }
 
- .openings {
-   
-    position: absolute;
-    top: 270px;
+ .applied h1 {
+    margin: 1%;
+ }
 
+ .openings {
+    top: 30%;
+    position: absolute;
  }
 
  .openings a{
@@ -86,31 +115,42 @@ th, td {
 
 <div class="content">
      <div class="applied">
-        <h1> </h1>
-
-        <table>
-            <tr>
-                <th> Applied Position </th>
-                <th> Status </th>
-            </tr>
-            <tr>
-                <td> Salesforce </td>
-                <td> Hired </td>
-            </tr>
-            <tr> 
-                <td> Amazon </td>
-                <td> Offered</td>
-            </tr>
-            <tr> 
-                <td> Teradata </td>
-                <td> Ghosted </td>
-            </tr>
+        <h1> Current applications</h1>
+        <div class="table-header">
+            <table>
+                <thead>
+                    <tr>
+                        <th> Company </th>
+                        <th> Position </th>
+                        <th> Status </th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+        <div class="table-content">
+            <table>
+                <tbody>
+                    <tr>
+                        <td> Salesforce </td>
+                        <td> SWE Intern Summer 2018 </td>
+                        <td> Hired </td>
+                    </tr>
+                    <tr> 
+                        <td> Amazon </td>
+                         <td> SWE Summer Intern 2018 </td>
+                        <td> Offered</td>
+                    </tr>
+                    <tr> 
+                        <td> Teradata </td>
+                         <td> Data Science Intern </td>
+                        <td> Ghosted </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
 
 
-</div>
-
-  
 <div class="openings">
         <h2>Openings</h2>
         <a href="companyA.html" target="_self"> <img border="0" alt="Amazon" src="amazon_icon.png" width="200" height="100"></a>
@@ -120,6 +160,12 @@ th, td {
 
         
 </div>
+
+
+
+
+</div>
+
  
 
 
