@@ -5,7 +5,7 @@
 <style>
  .sidebar {
      position: fixed;
-     width: 200px;
+     width: 15%;
      height: 100%;
      background: #f8f8ff;
  }
@@ -86,9 +86,12 @@ td{
 
  }
 
-
- 
- }
+/*Use a media query to add a breakpoint at 800px:*/
+@media (max-width:800px) {
+  .content, .main, .right {
+    width:100%; /*The width is 100%, when the viewport is 800px or smaller*/
+  }
+}
 </style>
 </head>
 <body>
