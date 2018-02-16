@@ -7,6 +7,19 @@ html,body{
   height: 100%;
 }
 
+.jumbotron
+{
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 30%;
+  margin-bottom: 0px !important; /*Override bootsrap's jumbotron styling*/
+}
+
+.jumbotron-image {
+  background-image: url('amazon-banner.PNG');
+}
+
+/*No longer used*/
 .banner { 
   padding: 30px; /* fills out the jumbotron */
   background-color: #111;
@@ -19,14 +32,20 @@ html,body{
 
 .open-jobs {
   width:75%;
-  float: left;
-  height: 100%; 
+  float: left; 
+  height: 100vh;
+  border-right:  1px solid black;
 }
 
 .extra {
   width:24%;
   float: right;
-  /*height: 100%;*/
+  height: 100vh;
+}
+
+/*no longer used*/
+.li-position {
+  margin:5px;
 }
 /*
 .li-position: {
