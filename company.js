@@ -43,9 +43,9 @@ function addCompany(name,id,bannerUrl,hq,size,industry,website,photosUrl,logoUrl
 
 	function populateCompanies(){
 		this.addCompany("Amazon, Inc.","1","amazon.PNG","Seattle, WA","75000",["E-Commerce","Cloud Computing"],"amazon.com",
-			"[amazon1,amazon2]","amazon.jpg");
+			["amazon1.JPG","amazon2.JPG","amazon3.JPG","amazon4.JPG","amazon5.JPG","amazon6.JPG"],"amazon.jpg");
 		this.addCompany("Salesforce","2","Salesforce.PNG","San Francisco, WA","10000",["Cloud Computing"]
-			,"Salesforce.com","[salesforce1,salesforce2,salesforce3]","salesforce.jpg");
+			,"Salesforce.com",["salesforce1.JPG","salesforce2.JPG","salesforce3.JPG"],"salesforce.jpg");
 
 		this.addPosition("Amazon, Inc.","1","Software Development Engineer Intern","Santa Clara, CA",
 			"Many of our technologies overlap—you’d be hard pressed to find a team that isn’t using Amazon Web Services (AWS), touching the catalogue, or iterating services to better personalize for the customer. Below is a small snapshot of potential work content provided to give you some of big ideas you could work with at Amazon."
@@ -87,6 +87,7 @@ function addCompany(name,id,bannerUrl,hq,size,industry,website,photosUrl,logoUrl
 		var list = document.getElementById('id-list-open-position');
 		var posArray;
 		var titlePosArray = [];
+		var idPosArray = [];
 
 		for(var i = 0; i < allCompanies.length; i++){
 			if(this.allCompanies[i].id == companyId){
@@ -97,12 +98,13 @@ function addCompany(name,id,bannerUrl,hq,size,industry,website,photosUrl,logoUrl
 
 		for(var i = 0; i < posArray.length; i++){
 			titlePosArray.push(posArray[i].title);
+			idPosArray.push(posArray[i].id);
 		}
 
 		for(var i = 0; i < titlePosArray.length; i++){
 			var a = document.createElement("a");
 			a.textContent = titlePosArray[i];
-			a.setAttribute('href',"company.html");
+			a.setAttribute('href',"current_job_posting.html?edit=true&id="+ idPosArray[i]);
 			var item = document.createElement('li');
 			item.className="list-group-item";
 			//item.appendChild(document.createTextNode(titlePosArray[i]));
@@ -165,10 +167,33 @@ function addCompany(name,id,bannerUrl,hq,size,industry,website,photosUrl,logoUrl
 		list.appendChild(item);
 	}
 
-	//window.onload = loadCompanyHomePage();
+	function populatePhotoList(companyId){
+		var list = document.getElementById('id-ul-photos');
+		var photos;
+		for(var i = 0; i < allCompanies.length; i++){
+			if(this.allCompanies[i].id == companyId){
+				photos = allCompanies[i].photosUrl;
+				break;
+			}
+		}
+
+		var item,content;
+		for(var i = 0; i < photos.length; i++){
+			item = document.createElement('li');
+			content = document.createElement("img");
+			content.setAttribute('src',photos[i]);
+			content.setAttribute('alt','image');
+			content.setAttribute('height','100px');
+			content.setAttribute('width','100px');
+			item.appendChild(content);
+			list.appendChild(item);
+		}
+	}
+
 	window.onload = function() {
 		populateCompanies();
 		setJumbotronBackground(1); //Still need to be fixed
 		fillUpPositions(1);
 		fillUpCompanyDetails(1);
+		populatePhotoList(1);
 	};
