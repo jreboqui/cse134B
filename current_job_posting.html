@@ -5,23 +5,22 @@
 
   <link href='style.css' rel='stylesheet' type='text/css'>
   <script type="text/javascript" src="objects.js"></script>
-  <script type="text/javascript" src="main.js"></script>
+  <script type="text/javascript" src="current_job_posting.js"></script>
 
 </head>
 
 <body>
-  <div class="banner"></div>
+  <!-- <div class="banner"></div> -->
+  <div id="id-banner" class="jumbotron jumbotron-fluid"></div>
 	<div>
-		<div class="curr-job-title" style="padding-left: 1%"> 
-					<h2 style="float:left">Software Development Intern</h2>
-					<h2 style="float:right;">Seattle, Wa</h2>
+		<div id="id-curr-job-title" class="curr-job-title" style="padding-left: 1%"> 
 		</div>
 
-		<div class="extra-buttons">
+		<div style="padding-top: 15px" class="extra-buttons">
 			
-			<button class="button-cancel-2" type="button" style="float: right">Remove</button>
-			<button class="button-edit-2" type="button" style="float:right">Edit</button>
-			<button class="button-filled" type="button" style="float:right">Filled</button>
+			<button  class="btn btn-success" type="button">Filled</button>			
+			<button  onclick="onClickEdit()" class="btn btn-primary" type="button">Edit</button>
+			<button  class="btn btn-danger" type="button">Remove</button>
 
 		</div>
 	</div>
@@ -30,49 +29,12 @@
 
 				<div style="padding-left: 1%; clear:both">
 					<h2><u>Job Description</u></h2>
-					<p>
-						• **Please only apply to the one job posting location that most interests you as you consider Amazon's Software Development Engineer job opportunities through University Recruiting.***
-					</p>
-					<p>
-						We are hiring innovative Software Development Engineer interns into our technical development teams throughout the US. We are headquartered in Seattle, WA, but also have exciting opportunities at our offices across the US and Canada!
-					</p>
-
-					<p>
-						In the US: Austin, TX; Phoenix, AZ; Boston, MA; New York, NY; Los Angeles, CA; Irvine, CA; San Luis Obispo, CA; Santa Cruz, CA; Bay Area, CA; Madison, WI; Herndon, VA, Portland, OR, Denver, CO and growing!
-					</p>
-
-					<p> 
-						In Canada, we are growing rapidly in: Vancouver, BC, Toronto, ON, and Ottawa, ON.
-					</p>
-
-					<p>
-						Our interns and co-ops write real software and partner with a select group of experienced software development engineers, who both help and challenge them as they work on projects that matter to our customers. You’ll be given the opportunity to have direct impact on the evolution of Amazon's technologies and lead mission critical projects early in your career. Your design, code and raw smarts will contribute to solving some of the most complex technical challenges in the areas of distributed systems, data mining, optimization, scalability, and security-- just to name a few.
-					</p>
-
-					<p>
-						Many of our technologies overlap—you’d be hard pressed to find a team that isn’t using Amazon Web Services (AWS), touching the catalogue, or iterating services to better personalize for the customer. Below is a small snapshot of potential work content provided to give you some of big ideas you could work with at Amazon.
-					</p>
+					<p id="id-p-job-description" style="white-space:pre-wrap;"></p>
 
 					<br>
 					<h2><u>Requirements</u></h2>
 
-					<p>
-						BASIC QUALIFICATIONS <br> <br>
-						· Currently enrolled in a Bachelor’s or Master’s degree program in Computer Science, Computer Engineering, or related technical discipline with a focus on software development<br>
-						· Currently enrolled in university with graduation dates starting December 2018 and onward<br>
-						· Able to work full-time (40 hrs/week) for 12 consecutive weeks between May 2018 through September 2018
-					</p>
-
-					<p>
-						PREFERRED QUALIFICATIONS<br><br>
-
-						· Graduation date between December 2018 and September 2019 <br>
-						· Strong understanding of object-oriented design, data structures, and algorithms<br>
-						· Proficient in one or more object-orientated programming languages (Java, C, C++, etc)<br>
-						· Ability to effectively articulate technical challenges and solutions<br>
-						· Adept at handling ambiguous or undefined challenges through strong problem solving abilities and effective communication
-						Amazon is an Equal Opportunity-Affirmative Action Employer – Minority / Female / Disability / Veteran / Gender Identity / Sexual Orientation
-					</p>
+					<p id="id-p-requirements" style="white-space:pre-wrap;"></p>
 
 				</div>
 		</div>
@@ -80,13 +42,7 @@
 	<div class="extra">
 	    <!--<div id="company_details">!-->
 	      <h4>Company Details:</h4>
-	      <ul>
-	        <li>Headquarters: Seattle, WA</li>
-	        <li>Size: 71,500 Employees</li>
-	        <li>Industry: Online Shopping, 
-	          <a href="https://en.wikipedia.org/wiki/Cloud_computing">Cloud Computing</a>
-	        </li>
-	        <li>Website: <a href="https://www.amazon.com/">amazon.com</a></li>
+	      <ul id="id-comp-details">
 	      </ul>  
 
 	      <hr>
@@ -94,21 +50,12 @@
 	      <div class="photos">
 	        <h4>Photos:</h4>
 	        <div>
-	          <ul class="ul-photo-list">
-	            <li><img src="amazon1.JPG" alt="image" width="100" height="100"></li>
-	            <li><img src="amazon2.JPG" alt="image" width="100" height="100"></li>
-	            <li><img src="amazon3.JPG" alt="image" width="100" height="100"></li>
-	            <li><img src="amazon4.JPG" alt="image" width="100" height="100"></li>
-	            <li><img src="amazon5.JPG" alt="image" width="100" height="100"></li>
-	            <li><img src="amazon6.JPG" alt="image" width="100" height="100"></li>
+	          <ul id="id-ul-photos" class="ul-photo-list">
 	          </ul>
 	        </div>
 	      </div>
 
-	    <!--</div>!-->
-
-	    <br>
-	    <button class="button button-edit" type="button">Edit</button>    
+	    <!--</div>!--> 
   	</div> <!--End of extra div!-->
 
 	
@@ -146,5 +93,14 @@
 		</ul>
 	</div><!--End of Applicant list div!-->
 
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
 </body>
