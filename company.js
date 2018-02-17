@@ -1,86 +1,14 @@
-function addCompany(name,id,bannerUrl,hq,size,industry,website,photosUrl,logoUrl){
-		var newComp = Object.create(Company);
-		
-		newComp.name = name;
-		newComp.id = id;
-		newComp.bannerUrl = bannerUrl;
-		newComp.hq = hq;
-		newComp.size = size;
-		newComp.industry = industry;
-		newComp.website = website;
-		newComp.photosUrl = photosUrl;
-		newComp.logoUrl = logoUrl;
-		newComp.openPositions = [];
-		
-		this.allCompanies.push(newComp);
-	}
-
-	function addPosition(companyName, id,title,location,description,reqs,applicantsId){
-		var newPos = Object.create(Positions);
-		
-		newPos.id = id;
-		newPos.title = title;
-		newPos.location = location;
-		newPos.description = description;
-		newPos.reqs = reqs;
-		newPos.applicantsId = applicantsId;
-
-		for(i = 0; i < this.allCompanies.length; i++){
-			if(this.allCompanies[i].name == companyName) {
-				allCompanies[i].openPositions.push(newPos);
+	function setJumbotronBackground(companyId){
+		var banner = document.getElementsByClassName("jumbotron");
+		console.log(banner);
+		var bannerUrl = ""
+		for(var i = 0; i < allCompanies.length; i++){
+			if(this.allCompanies[i].id == companyId){
+				bannerUrl = allCompanies[i].bannerUrl;
 				break;
-			}			
+			}
 		}
-	}
-
-	function getCompany(companyName){
-		for(i = 0; i < this.allCompanies.length; i++){
-			if(this.allCompanies[i].name == companyName) {
-				return allCompanies[i];
-			}			
-		}
-	}
-
-	function populateCompanies(){
-		this.addCompany("Amazon, Inc.","1","amazon.PNG","Seattle, WA","75000",["E-Commerce","Cloud Computing"],"amazon.com",
-			["amazon1.JPG","amazon2.JPG","amazon3.JPG","amazon4.JPG","amazon5.JPG","amazon6.JPG"],"amazon.jpg");
-		this.addCompany("Salesforce","2","Salesforce.PNG","San Francisco, WA","10000",["Cloud Computing"]
-			,"Salesforce.com",["salesforce1.JPG","salesforce2.JPG","salesforce3.JPG"],"salesforce.jpg");
-
-		this.addPosition("Amazon, Inc.","1","Software Development Engineer Intern","Santa Clara, CA",
-			"Many of our technologies overlap—you’d be hard pressed to find a team that isn’t using Amazon Web Services (AWS), touching the catalogue, or iterating services to better personalize for the customer. Below is a small snapshot of potential work content provided to give you some of big ideas you could work with at Amazon."
-			,"· Currently enrolled in a Bachelor’s or Master’s degree program in Computer Science, Computer Engineering, or related technical discipline with a focus on software development",
-			[3,5,6,7,10]);
-
-		this.addPosition("Amazon, Inc.","2","Hardware Development Intern","Seattle, WA",
-			"Many of our technologies overlap—you’d be hard pressed to find a team that isn’t using Amazon Web Services (AWS), touching the catalogue, or iterating services to better personalize for the customer. Below is a small snapshot of potential work content provided to give you some of big ideas you could work with at Amazon."
-			,"· Currently enrolled in a Bachelor’s or Master’s degree program in Computer Science, Computer Engineering, or related technical discipline with a focus on software development",
-			[1,2,5,6,7]);
-
-		this.addPosition("Amazon, Inc.","3","Data Science Intern","Santa Clara, CA",
-			"Many of our technologies overlap—you’d be hard pressed to find a team that isn’t using Amazon Web Services (AWS), touching the catalogue, or iterating services to better personalize for the customer. Below is a small snapshot of potential work content provided to give you some of big ideas you could work with at Amazon."
-			,"· Currently enrolled in a Bachelor’s or Master’s degree program in Computer Science, Computer Engineering, or related technical discipline with a focus on software development",
-			[4,10,11,12,15]);		
-
-		this.addPosition("Amazon, Inc.","4","Visual Design Intern","Santa Clara, CA",
-			"Many of our technologies overlap—you’d be hard pressed to find a team that isn’t using Amazon Web Services (AWS), touching the catalogue, or iterating services to better personalize for the customer. Below is a small snapshot of potential work content provided to give you some of big ideas you could work with at Amazon."
-			,"· Currently enrolled in a Bachelor’s or Master’s degree program in Computer Science, Computer Engineering, or related technical discipline with a focus on software development",
-			[4,10,11,12,15]);
-
-		this.addPosition("Amazon, Inc.","5","Machine Learning Researcher Intern","Seattle, WA",
-			"Many of our technologies overlap—you’d be hard pressed to find a team that isn’t using Amazon Web Services (AWS), touching the catalogue, or iterating services to better personalize for the customer. Below is a small snapshot of potential work content provided to give you some of big ideas you could work with at Amazon."
-			,"· Currently enrolled in a Bachelor’s or Master’s degree program in Computer Science, Computer Engineering, or related technical discipline with a focus on software development",
-			[4,10,11,12,15]);
-
-		this.addPosition("Amazon, Inc.","6","UI/UX Design Intern","Seattle, WA",
-			"Many of our technologies overlap—you’d be hard pressed to find a team that isn’t using Amazon Web Services (AWS), touching the catalogue, or iterating services to better personalize for the customer. Below is a small snapshot of potential work content provided to give you some of big ideas you could work with at Amazon."
-			,"· Currently enrolled in a Bachelor’s or Master’s degree program in Computer Science, Computer Engineering, or related technical discipline with a focus on software development",
-			[4,10,11,12,15]);
-
-		this.addPosition("Amazon, Inc.","7","MBA Intern (Graduate)","Seattle, WA",
-			"Many of our technologies overlap—you’d be hard pressed to find a team that isn’t using Amazon Web Services (AWS), touching the catalogue, or iterating services to better personalize for the customer. Below is a small snapshot of potential work content provided to give you some of big ideas you could work with at Amazon."
-			,"· Currently enrolled in a Bachelor’s or Master’s degree program in Computer Science, Computer Engineering, or related technical discipline with a focus on software development",
-			[4,10,11,12,15]);
+		banner.backgroundImage = "url('amazon-banner.PNG')";
 	}
 
 	function fillUpPositions(companyId){
@@ -113,21 +41,7 @@ function addCompany(name,id,bannerUrl,hq,size,industry,website,photosUrl,logoUrl
 		}
 
 		list.className = "list-group";
-		console.log(list);
-	}
-
-
-	function setJumbotronBackground(companyId){
-		var banner = document.getElementsByClassName("jumbotron");
-		console.log(banner);
-		var bannerUrl = ""
-		for(var i = 0; i < allCompanies.length; i++){
-			if(this.allCompanies[i].id == companyId){
-				bannerUrl = allCompanies[i].bannerUrl;
-				break;
-			}
-		}
-		banner.backgroundImage = "url('amazon-banner.PNG')";
+		//console.log(list);
 	}
 
 
@@ -190,8 +104,41 @@ function addCompany(name,id,bannerUrl,hq,size,industry,website,photosUrl,logoUrl
 		}
 	}
 
+	function fillUpAbout(companyId){
+		var aboutCompany = document.getElementById('id-about');
+		var title;
+		var description;
+
+		for(var i = 0; i < allCompanies.length; i++){
+			if(this.allCompanies[i].id == companyId){
+				title = allCompanies[i].title;
+				description = allCompanies[i].description;
+				break;
+			}
+		}
+
+		var header = document.createElement('h3');
+		var headerChild = document.createTextNode(title);
+		header.appendChild(headerChild);
+
+		var content = document.createElement('p');
+		var contentChild = document.createTextNode(description);
+		content.appendChild(contentChild);
+		
+		aboutCompany.appendChild(header);
+		aboutCompany.appendChild(content);
+	}
+
+	function retrieveLocalData(){
+		var retrivedCompanies = localStorage.getItem('allCompanies');
+		retrivedCompanies = JSON.parse(retrivedCompanies);
+		allCompanies = retrivedCompanies;
+		console.log(allCompanies);
+	}
+
 	window.onload = function() {
-		populateCompanies();
+		retrieveLocalData();
+		fillUpAbout(1);
 		setJumbotronBackground(1); //Still need to be fixed
 		fillUpPositions(1);
 		fillUpCompanyDetails(1);
