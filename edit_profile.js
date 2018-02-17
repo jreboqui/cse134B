@@ -29,6 +29,11 @@ function populateForm(studentId) {
         }
     }
 
+    var URL = student.profilePic;
+    field = document.querySelector('#imgURL');
+    field.value = URL;
+    console.log(field.value);
+
     var fullname = student.name;
     field = document.querySelector('#name');
     field.value = fullname;
@@ -61,6 +66,7 @@ function populateForm(studentId) {
 }
 
 function resetForm(){
+    document.getElementById("imgURL").reset();
     document.getElementById("name").reset(); 
     document.getElementById("schoolname").reset(); 
     document.getElementById("year").reset(); 
@@ -70,11 +76,34 @@ function resetForm(){
 }
 
 function updateProfile(){
-    document.getElementById('name').value;
+    student = allStudents[1];
+    student.profilePic = document.getElementById("imgURL").value;
+    student.name = document.getElementById("name").value; 
+    student.school = document.getElementById("schoolname").value; 
+    student.year = document.getElementById("year").value; 
+    student.major = document.getElementById("major").value; 
+    student.GPA = document.getElementById("gpa").value;
+    
+    //document.getElementById("intern").value;
+    console.log(allStudent);
+	localStorage.setItem('allStudents',JSON.stringify(allStudent));
+	console.log("Initialized local storage");
+}
+
+function updateImg(){
+    var imgURL = document.getElementById("imgURL").value;
+    document.getElementById("profileImg").src = imgURL;
+}
+
+function retrieveLocalData(){
+    var retrivedStudents = localStorage.getItem('allStudents');
+    retrivedStudents = JSON.parse(retrivedStudents);
+    allStudents = retrievedStudents;
+    console.log(allStudents);
 }
 
 window.onload = function() {
-    populateStudents();
-
+    //populateStudents();
+    retrieveLocalData();
     populateForm(1);
 }

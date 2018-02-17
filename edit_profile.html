@@ -89,10 +89,13 @@ textarea {
     <h1>Edit Profile</h1>
     <hr>    
     <div class="profile">
-        <img src="usericon.png" alt="No Image Found" width="150" height="150"><br>
-        <button type="button"> Change Profile Picture</button> <br> <br>
-
         <form name="profile">
+            <img id="profileImg" src="kpan.jpg" alt="No Image Found" width="150" height="150"><br>
+        
+            <label for="imgURL">Enter Image URL:</label>
+            <input type="text" id="imgURL"><br>
+            <button type="button" onClick="updateImg()"> Change Profile Picture</button> <br> <br>
+        
             <label for="name">Full name:</label>
             <input type="text" id="name"><br>
 
@@ -111,7 +114,8 @@ textarea {
             <label for="internship">Previous Internship:</label> <br>
             <textarea class="profileintern" id="internship"></textarea> <br> <br>
 
-            <button type="button">Upload Resume</button> <br>
+            <!--
+            <button type="button">Upload Resume</button> <br> -->
 
             <input type="reset" value="Reset" onClick="resetForm()">
             <button class=" button-cancel" type="button" style="float: left">Cancel</button>
