@@ -32,7 +32,7 @@
 		for(var i = 0; i < titlePosArray.length; i++){
 			var a = document.createElement("a");
 			a.textContent = titlePosArray[i];
-			a.setAttribute('href',"current_job_posting.html?edit=true&id="+ idPosArray[i]);
+			a.setAttribute('href',"current_job_posting.html?edit=1&" + "companyId=" + companyId +"&id="+ idPosArray[i]);
 			var item = document.createElement('li');
 			item.className="list-group-item";
 			//item.appendChild(document.createTextNode(titlePosArray[i]));
@@ -128,6 +128,12 @@
 		aboutCompany.appendChild(header);
 		aboutCompany.appendChild(content);
 	}
+
+
+	function addNewPosition(companyId){
+		location.href = "new_job_posting.html" + "?id=" + companyId;
+	}
+
 
 	function retrieveLocalData(){
 		var retrivedCompanies = localStorage.getItem('allCompanies');
