@@ -146,10 +146,7 @@ function populateApplicationTable(studentId) {
 
 }
 
-populateOpenings() {
 
-
-}
 window.onload = function() {
     populateStudents();
 
