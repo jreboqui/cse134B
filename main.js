@@ -17,6 +17,21 @@
 	    this.allCompanies.push(newComp);
 	}
 
+	function addApplication(studentId, companyId, positionTitle, appStatus) {
+	    var newApp = Object.create(applicationInfo);
+	    newApp.companyId = companyId;
+	    newApp.positionTitle = positionTitle;
+	    newApp.appStatus = appStatus;
+
+	    for (i = 0; i < allStudents.length; i++) {
+	        if (allStudents[i].sid == studentId) {
+	            allStudents[i].applications.push(newApp);
+	            console.log(allStudents[i].applications);
+	            break;
+	        }
+	    }
+	}
+
 	function addPosition(companyName, id, title, location, description, reqs, applicantsId) {
 	    var newPos = Object.create(Positions);
 
@@ -94,49 +109,54 @@
 	    this.addStudent("Kevin Pansawira", "1", "UCSD", "2018", "Computer Science", "3.99", "none", "kpan.jpg");
 	    this.addStudent("Michael Angelo", "2", "MIT", "2018", "Arts", "3.98", "none", "kpan.jpg");
 	    console.log("populateStudents done");
+
+	    this.addApplication("1", "1", "Software Engineering Intern", "Phase 1");
+	    this.addApplication("1", "1", "Data Science Intern", "Rejected");
+	    console.log("added applications");
+
 	}
 
-function onClickLogin(){
-	var type = document.getElementById("type").value;
-	var uname = document.getElementById("uname").value;
-	var psw = document.getElementById("psw").value;
+	function onClickLogin() {
+	    var type = document.getElementById("type").value;
+	    var uname = document.getElementById("uname").value;
+	    var psw = document.getElementById("psw").value;
 
-	if(type == "c"){
-		for(var i = 0; i < allCompanies.length; i++){
-			if(allCompanies[i].userName == uname && allCompanies[i].password == psw){
-				localStorage.setItem("userType",type);
-				localStorage.setItem("userId",allCompanies[i].id);
-				alert("Sign in Successful!");
-				window.location = "company.html";	
-			}
-		}
-	}
+	    if (type == "c") {
+	        for (var i = 0; i < allCompanies.length; i++) {
+	            if (allCompanies[i].userName == uname && allCompanies[i].password == psw) {
+	                localStorage.setItem("userType", type);
+	                localStorage.setItem("userId", allCompanies[i].id);
+	                alert("Sign in Successful!");
+	                window.location = "company.html";
+	            }
+	        }
+	    }
 
-	if(type == "s"){
-		for(var i = 0; i < allCompanies.length; i++){
-			if(allCompanies[i].userName == uname && allCompanies[i].password == psw){
-				localStorage.setItem("userType",type);
-				localStorage.setItem("userId",allCompanies[i].id);
-				alert("Sign in Successful!");
-				window.location = "profile.html";	
-			}
-		}
-	}
+	    if (type == "s") {
+	        for (var i = 0; i < allCompanies.length; i++) {
+	            if (allCompanies[i].userName == uname && allCompanies[i].password == psw) {
+	                localStorage.setItem("userType", type);
+	                localStorage.setItem("userId", allCompanies[i].id);
+	                alert("Sign in Successful!");
+	                window.location = "profile.html";
+	            }
+	        }
+	    }
 
-	if(type == "t"){
-		for(var i = 0; i < allCompanies.length; i++){
-			if(allCompanies[i].userName == uname && allCompanies[i].password == psw){
-				localStorage.setItem("userType",type);
-				localStorage.setItem("userId",allCompanies[i].id);
-				alert("Sign in Successful!");
-				window.location = "profile.html";	
-			}
-		}
+	    if (type == "t") {
+	        for (var i = 0; i < allCompanies.length; i++) {
+	            if (allCompanies[i].userName == uname && allCompanies[i].password == psw) {
+	                localStorage.setItem("userType", type);
+	                localStorage.setItem("userId", allCompanies[i].id);
+	                alert("Sign in Successful!");
+	                window.location = "profile.html";
+	            }
+	        }
+	    }
 	}
-}
 
 	window.onload = function() {
-		console.log("jahdkjasdhjs");
+	    console.log("jahdkjasdhjs");
 	    populateCompanies();
 	    populateStudents();
 	    addPosition(1);
