@@ -26,7 +26,9 @@ var Company = {
     website,
     photosUrl, //array
     logoUrl,
-    openPositions //array
+    openPositions, //array,
+    title,
+	description
 };
 
 var allCompanies = [];
