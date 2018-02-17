@@ -54,14 +54,6 @@ function populateSidebar(studentId) {
 
 }
 
-function addApplication() {
-
-    var companyName = "Amazon";
-    var position = "SWE Intern";
-    var status = "Hired";
-
-}
-
 function populateApplicationTable(studentId) {
     
 
@@ -134,6 +126,33 @@ function populateApplicationTable(studentId) {
     
 }
 
+function loadCompanyListings(compId){
+    console.log(compId);
+}
+
+function populateOpenings(){
+    console.log("called populateOpenings");
+    console.log(allCompanies.length);
+    console.log(allCompanies[0].openPositions.length);
+    var compListings = document.getElementById('compListings');
+    
+    for (i = 0; i < allCompanies.length; i++){
+        if (allCompanies[i].openPositions.length > 0){
+            console.log(allCompanies[i].name);
+            var icon = document.createElement('IMG');
+            icon.setAttribute('src', allCompanies[i].logoUrl);
+            icon.setAttribute('alt', allCompanies[i].name);
+            icon.setAttribute('width', "200");
+            icon.setAttribute('height', "100");
+            icon.setAttribute('border', "0");
+            icon.addEventListener('click', function (e) {     
+                window.location = "student_companylistings.html";
+            });
+            compListings.appendChild(icon);
+        }
+    }
+}
+
 
 function retrieveLocalData1(){
     console.log("in retrieveLocalData");
@@ -158,6 +177,6 @@ window.onload = function() {
 
     populateApplicationTable(1);
 
-  //  populateOpenings();
+    populateOpenings();
 
 }
