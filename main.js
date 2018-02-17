@@ -45,10 +45,10 @@
 
 	function populateCompanies(){
 		this.addCompany("Amazon, Inc.","1","amazon.PNG","Seattle, WA","75000",["E-Commerce","Cloud Computing"],"amazon.com",
-			["amazon1.JPG","amazon2.JPG","amazon3.JPG","amazon4.JPG","amazon5.JPG","amazon6.JPG"],"amazon.jpg",
+			["amazon1.JPG","amazon2.JPG","amazon3.JPG","amazon4.JPG","amazon5.JPG","amazon6.JPG"],"amazon_icon.png",
 			"We pioneer", "We're a company of pioneers. It's our job to make bold bets, and we get our energy from inventing on behalf of customers. Success is measured against the possible, not the probable. For today’s pioneers, that’s exactly why there’s no place on Earth they’d rather build than Amazon.");
 		this.addCompany("Salesforce","2","Salesforce.PNG","San Francisco, WA","10000",["Cloud Computing"],
-			"Salesforce.com",["salesforce1.JPG","salesforce2.JPG","salesforce3.JPG"],"salesforce.jpg",
+			"Salesforce.com",["salesforce1.JPG","salesforce2.JPG","salesforce3.JPG"],"salesforce_icon.png",
 			"We pioneer", "We're a company of pioneers. It's our job to make bold bets, and we get our energy from inventing on behalf of customers. Success is measured against the possible, not the probable. For today’s pioneers, that’s exactly why there’s no place on Earth they’d rather build than Amazon.");
 
 		this.addPosition("Amazon, Inc.","1","Software Development Engineer Intern","Santa Clara, CA",
