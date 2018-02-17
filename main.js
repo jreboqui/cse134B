@@ -87,10 +87,37 @@
 			[4,10,11,12,15]);
 	}
 
+	//-------------STUDENT OBJECT
+	function addStudent(name, sid, school, year, major, GPA, minor, Pic) {
+		var newStudent = Object.create(Student);
+	
+		newStudent.name = name;
+		newStudent.sid = sid;
+		newStudent.school = school;
+		newStudent.year = year;
+		newStudent.major = major;
+		newStudent.GPA = GPA;
+		newStudent.minor = minor;
+		newStudent.profilePic = Pic;
+		newStudent.status = "Looking for internship";
+		newStudent.applications = [];
+	
+		this.allStudents.push(newStudent);
+	}
+	
+	function populateStudents() {
+		this.addStudent("Kevin Pansawira", "1", "UCSD", "2018", "Computer Science", "3.99", "none", "kpan.jpg");
+		this.addStudent("Michael Angelo", "2", "MIT", "2018", "Arts", "3.98", "none", "kpan.jpg");
+		console.log("populateStudents done");
+	}
+
 	window.onload = function() {
 		populateCompanies();
+		populateStudents();
 		addPosition(1);
 		console.log(allCompanies);
+		console.log(allStudents);
 		localStorage.setItem('allCompanies',JSON.stringify(allCompanies));
+		localStorage.setItem('allStudents', JSON.stringify(allStudents));
 		console.log("Initialized local storage");
 	}

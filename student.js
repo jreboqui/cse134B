@@ -1,31 +1,3 @@
-function addStudent(name, sid, school, year, major, GPA, minor, Pic) {
-    var newStudent = Object.create(Company);
-
-    newStudent.name = name;
-    newStudent.sid = sid;
-    newStudent.school = school;
-    newStudent.year = year;
-    newStudent.major = major;
-    newStudent.GPA = GPA;
-    newStudent.minor = minor;
-    newStudent.profilePic = Pic;
-    newStudent.status = "Looking for internship";
-    newStudent.companies = [
-        ["Salesforce", "SWE Intern", "Hired"],
-        ["Amazon", "SWE Intern", "Offered"],
-        ["Teradata", "Data Science Intern", "Ghosted"]
-    ];
-
-
-
-    this.allStudents.push(newStudent);
-}
-
-function populateStudents() {
-    this.addStudent("Kevin Pansawira", "1", "UCSD", "2018", "Computer Science", "3.99", "none", "kpan.jpg");
-
-}
-
 function populateSidebar(studentId) {
 
     var student;
@@ -91,15 +63,7 @@ function addApplication() {
 }
 
 function populateApplicationTable(studentId) {
-    var student;
-
-    for (var i = 0; i < allStudents.length; i++) {
-        if (this.allStudents[i].sid == studentId) {
-
-            student = allStudents[i];
-
-        }
-    }
+    
 
     //Student companies
 
@@ -126,34 +90,74 @@ function populateApplicationTable(studentId) {
 
     myTableDiv.appendChild(table);
 
+    var student;
+
+    for (var i = 0; i < allStudents.length; i++) {
+        if (this.allStudents[i].sid == studentId) {
+
+            student = allStudents[i];
+
+        }
+    }
+
     var myTable = document.getElementById("theContent");
     var table2 = document.createElement('TABLE');
     var tableBody = document.createElement('TBODY')
-    console.log(student.companies.length);
-    console.log(student.companies[0].length);
-    for (i = 0; i < student.companies.length; i++) {
-        var tr = document.createElement('TR');
-        for (j = 0; j < student.companies[i].length; j++) {
-            var th = document.createElement('TH');
-            console.log(student.companies[i][j]);
-            th.appendChild(document.createTextNode(student.companies[i][j]));
-            tr.appendChild(th);
+    //console.log(student.companies.length);
+    //console.log(student.companies[0].length);
+    if (student.companies != null){
+        for (i = 0; i < student.companies.length; i++) {
+            var tr = document.createElement('TR');
+            for (j = 0; j < student.companies[i].length; j++) {
+                var th = document.createElement('TH');
+                console.log(student.companies[i][j]);
+                th.appendChild(document.createTextNode(student.companies[i][j]));
+                tr.appendChild(th);
+            }
+            tableBody.appendChild(tr);
         }
-        tableBody.appendChild(tr);
-    }
-    table2.appendChild(tableBody);
-    myTable.appendChild(table2);
+        table2.appendChild(tableBody);
+        myTable.appendChild(table2);
+    
 
+    } else {
+        var tr = document.createElement('TR');
+        var th = document.createElement('TH');
+
+        th.appendChild(document.createTextNode("No current applications"));
+        tr.appendChild(th);
+        tableBody.appendChild(tr);
+        table2.appendChild(tableBody);
+        myTable.appendChild(table2);
+
+    }
+    
 }
 
 
+function retrieveLocalData1(){
+    console.log("in retrieveLocalData");
+    var retrivedCompanies = localStorage.getItem('allCompanies');
+    retrivedCompanies = JSON.parse(retrivedCompanies);
+    allCompanies = retrivedCompanies;
+    console.log("Printing");
+    console.log(allCompanies);
+
+    var retrievedStudents = localStorage.getItem('allStudents');
+    retrievedStudents = JSON.parse(retrievedStudents);
+    allStudents = retrievedStudents;
+    console.log("Printing all students");
+    console.log(allStudents);
+}
+
 window.onload = function() {
-    populateStudents();
+    
+    retrieveLocalData1();
 
     populateSidebar(1);
 
     populateApplicationTable(1);
 
-    populateOpenings();
+  //  populateOpenings();
 
 }
