@@ -3,6 +3,8 @@
 <head>
     <meta charset="utf-8"/>
     <title> Edit Profile </title>
+    <script type="text/javascript" src="objects.js"></script>
+    <script type="text/javascript" src="edit_profile.js"></script>
 <!--meta name="viewport" content="width=device-width, initial-scale=1"-->
 <style>
 body{
@@ -90,30 +92,30 @@ textarea {
         <img src="usericon.png" alt="No Image Found" width="150" height="150"><br>
         <button type="button"> Change Profile Picture</button> <br> <br>
 
-        <form>
-            <label for="firstname">First name:</label>
-            <input type="text" id="firstname"><br>
-
-            <label for="lastname">Last name:</label>
-            <input type="text" id="lastname"><br>
+        <form name="profile">
+            <label for="name">Full name:</label>
+            <input type="text" id="name"><br>
 
             <label for="schoolname">School name:</label>
             <input type="text" id="schoolname"><br>
 
-            <label for="year">Planned Graduation Year:</label>
+            <label for="year">Year:</label>
             <input type="text" id="year"><br>
 
-            <label for="address">Address:</label> <br>
-			<textarea class="profileaddress" id="address"></textarea> <br> <br>
+            <label for="major">Major:</label>
+            <input type="text" id="major"><br>
+
+            <label for="gpa">GPA:</label>
+            <input type="text" id="gpa"><br>
 
             <label for="internship">Previous Internship:</label> <br>
             <textarea class="profileintern" id="internship"></textarea> <br> <br>
 
             <button type="button">Upload Resume</button> <br>
 
-            <input type="reset" value="Reset">
+            <input type="reset" value="Reset" onClick="resetForm()">
             <button class=" button-cancel" type="button" style="float: left">Cancel</button>
-            <input type="submit" value="Save Changes">
+            <input type="submit" value="Save Changes" onClick="updateProfile()">
 
     </form>
 </div>

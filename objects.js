@@ -1,6 +1,6 @@
 var id, title, location, description, reqs, applicantsId;
 var bannerUrl, hq, size, industry, website, photosUrl, logoUrl, openPositions;
-var sid, name, school, year, major, GPA, minor, profilePic, companies, status
+var sid, name, school, year, major, GPA, minor, profilePic, status, positionTitle, companyName, appStatus, applications
 var Positions = {
     id,
     title,
@@ -9,6 +9,12 @@ var Positions = {
     reqs,
     applicantsId //array
 };
+
+var applicationInfo = {
+    companyName,
+    positionTitle,
+    appStatus
+}
 
 var Company = {
     name,
@@ -36,6 +42,6 @@ var Student = {
     minor,
     profilePic,
     status,
-    companies //array
+    applications //array
 
 }
