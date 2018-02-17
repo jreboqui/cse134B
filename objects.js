@@ -1,6 +1,7 @@
 var id, title, location, description, reqs, applicantsId;
 var bannerUrl, hq, size, industry, website, photosUrl, logoUrl, openPositions;
-var sid, name, school, year, major, GPA, minor, profilePic, status, positionTitle, companyName, appStatus, applications
+var sid, name, school, year, major, GPA, minor, profilePic, status, positionTitle, companyId, appStatus, applications, username, password
+var tid, studentName, date, mentees
 var Positions = {
     id,
     title,
@@ -11,9 +12,14 @@ var Positions = {
 };
 
 var applicationInfo = {
-    companyName,
-    positionTitle,
-    appStatus
+    companyId,
+    positionTitle, //array
+    appStatus //array
+}
+
+var mentee = {
+    studentName,
+    date
 }
 
 var Company = {
@@ -28,11 +34,14 @@ var Company = {
     logoUrl,
     openPositions, //array,
     title,
-	description
+    description,
+    username,
+    password
 };
 
 var allCompanies = [];
 var allStudents = [];
+var allTutors = [];
 
 var Student = {
     sid,
@@ -44,6 +53,24 @@ var Student = {
     minor,
     profilePic,
     status,
-    applications //array
+    applications, //array
+    username,
+    password
+
+}
+
+var Tutor = {
+    tid,
+    name,
+    school,
+    year,
+    major,
+    GPA,
+    minor,
+    profilePic,
+    mentees, //array
+    username,
+    password
+
 
 }
