@@ -5,6 +5,7 @@
 <title> Login Page</title>
 <script type="text/javascript" src="objects.js"></script>
 <script type="text/javascript" src="main.js"></script>
+<script type="text/javascript" src="login_page.js"></script>
 <meta charset="utf-8">
 <style>
 /* Full-width input fields */
@@ -132,13 +133,16 @@ span.psw {
 
       <label><b>Password</b></label>
       <input type="password" placeholder="Enter Password" name="psw" required>
+       
+      <label for="userType"><b>Login as:<b></label><br>
+      <select id="userType">
+            <option value="s">Student</option>
+            <option value="t">Tutor</option>
+            <option value="c">Company</option>
+      </select>
         
-      <form><button type="submit">Login</button></form>
-      <label>
-        <input type="checkbox" checked="checked"> Remember me
-      </label>
+      <form><button onclick="onClickLogin()" type="submit">Login</button></form>
 
-      <p> Login goes to this page </p>
       <a href="profile_page.html">Click me</a>
     </div>
 
