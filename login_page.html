@@ -5,7 +5,7 @@
 <title> Login Page</title>
 <script type="text/javascript" src="objects.js"></script>
 <script type="text/javascript" src="main.js"></script>
-<script type="text/javascript" src="login_page.js"></script>
+
 <meta charset="utf-8">
 <style>
 /* Full-width input fields */
@@ -129,19 +129,19 @@ span.psw {
 
   <div class="container">
       <label><b>Username</b></label>
-      <input type="text" placeholder="Enter Username" name="uname" required>
+      <input type="text" placeholder="Enter Username" id="uname" name="uname" required>
 
       <label><b>Password</b></label>
-      <input type="password" placeholder="Enter Password" name="psw" required>
+      <input type="password" placeholder="Enter Password" id="psw" name="psw" required>
        
       <label for="userType"><b>Login as:<b></label><br>
-      <select id="userType">
+      <select id="userType" name="userType">
             <option value="s">Student</option>
             <option value="t">Tutor</option>
             <option value="c">Company</option>
       </select>
         
-      <form><button onclick="onClickLogin()" type="submit">Login</button></form>
+      <form><button onclick="onClickLogin()" type="button">Login</button></form>
 
       <a href="profile_page.html">Click me</a>
     </div>

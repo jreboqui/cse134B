@@ -57,7 +57,7 @@ function populateSidebar(studentId) {
 }
 
 function populateApplicationTable(studentId) {
-    
+
 
     //Student companies
 
@@ -97,9 +97,9 @@ function populateApplicationTable(studentId) {
     var myTable = document.getElementById("theContent");
     var table2 = document.createElement('TABLE');
     var tableBody = document.createElement('TBODY')
-    //console.log(student.companies.length);
-    //console.log(student.companies[0].length);
-    if (student.companies != null){
+        //console.log(student.companies.length);
+        //console.log(student.companies[0].length);
+    if (student.companies != null) {
         for (i = 0; i < student.companies.length; i++) {
             var tr = document.createElement('TR');
             for (j = 0; j < student.companies[i].length; j++) {
@@ -112,7 +112,7 @@ function populateApplicationTable(studentId) {
         }
         table2.appendChild(tableBody);
         myTable.appendChild(table2);
-    
+
 
     } else {
         var tr = document.createElement('TR');
@@ -125,38 +125,49 @@ function populateApplicationTable(studentId) {
         myTable.appendChild(table2);
 
     }
-    
+
 }
 
-function loadCompanyListings(compId){
-    console.log(compId);
+function loadCompanyListings(compId) {
+    var comp;
+
+    for (i = 0; i < allCompanies.length; i++) {
+        if (allCompanies[i].id == compId) {
+            comp = allCompanies[i];
+            break;
+        }
+    }
+
+    location.href = "company.html?" + allCompanies.id;
 }
 
-function populateOpenings(){
+function populateOpenings() {
     console.log("called populateOpenings");
     console.log(allCompanies.length);
     console.log(allCompanies[0].openPositions.length);
     var compListings = document.getElementById('compListings');
-    
-    for (i = 0; i < allCompanies.length; i++){
-        if (allCompanies[i].openPositions.length > 0){
+
+    for (i = 0; i < allCompanies.length; i++) {
+        if (allCompanies[i].openPositions.length > 0) {
             console.log(allCompanies[i].name);
+            var aLink = document.createElement('a');
+            aLink.setAttribute('href', "company.html?companyId=" + allCompanies[i].id);
             var icon = document.createElement('IMG');
             icon.setAttribute('src', allCompanies[i].logoUrl);
             icon.setAttribute('alt', allCompanies[i].name);
             icon.setAttribute('width', "200");
             icon.setAttribute('height', "100");
             icon.setAttribute('border', "0");
-            icon.addEventListener('click', function (e) {     
-                window.location = "student_companylistings.html";
-            });
-            compListings.appendChild(icon);
+            aLink.appendChild(icon);
+            // icon.onclick = loadCompanyListings(allCompanies[i].id);
+
+            compListings.appendChild(aLink);
         }
     }
 }
 
 
-function retrieveLocalData1(){
+function retrieveLocalData1() {
     console.log("in retrieveLocalData");
     var retrivedCompanies = localStorage.getItem('allCompanies');
     retrivedCompanies = JSON.parse(retrivedCompanies);
@@ -176,7 +187,7 @@ function onClickEdit(){
 }
 
 window.onload = function() {
-    
+
     retrieveLocalData1();
     studentId = 1;
    // studentId = getParameterByName('studentId');

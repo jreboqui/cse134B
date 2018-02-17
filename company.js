@@ -134,6 +134,15 @@
 		location.href = "new_job_posting.html" + "?id=" + companyId;
 	}
 
+	function getParameterByName(name, url) {
+	    if (!url) url = window.location.href;
+	    name = name.replace(/[\[\]]/g, "\\$&");
+	    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+	        results = regex.exec(url);
+	    if (!results) return null;
+	    if (!results[2]) return '';
+	    return decodeURIComponent(results[2].replace(/\+/g, " "));
+	}	
 
 	function retrieveLocalData(){
 		var retrivedCompanies = localStorage.getItem('allCompanies');
@@ -143,10 +152,11 @@
 	}
 
 	window.onload = function() {
+		var compId = getParameterByName("companyId");
 		retrieveLocalData();
-		fillUpAbout(1);
-		setJumbotronBackground(1); //Still need to be fixed
-		fillUpPositions(1);
-		fillUpCompanyDetails(1);
-		populatePhotoList(1);
+		fillUpAbout(compId);
+		setJumbotronBackground(compId); //Still need to be fixed
+		fillUpPositions(compId);
+		fillUpCompanyDetails(compId);
+		populatePhotoList(compId);
 	};
