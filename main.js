@@ -99,8 +99,11 @@
 
 	window.onload = function() {
 	    populateCompanies();
+	    populateStudents();
 	    addPosition(1);
 	    console.log(allCompanies);
+	    console.log(allStudents);
 	    localStorage.setItem('allCompanies', JSON.stringify(allCompanies));
+	    localStorage.setItem('allStudents', JSON.stringify(allStudents));
 	    console.log("Initialized local storage");
 	}
