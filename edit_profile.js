@@ -1,71 +1,47 @@
-function addStudent(name, sid, school, year, major, GPA, minor, Pic) {
-    var newStudent = Object.create(Company);
+var studentId;
 
-    newStudent.name = name;
-    newStudent.sid = sid;
-    newStudent.school = school;
-    newStudent.year = year;
-    newStudent.major = major;
-    newStudent.GPA = GPA;
-    newStudent.minor = minor;
-    newStudent.profilePic = Pic;
-    newStudent.companies = [];
-
-    this.allStudents.push(newStudent);
+function getParameterByName(name, url) {
+    if (!url) url = window.location.href;
+    name = name.replace(/[\[\]]/g, "\\$&");
+    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, " "));
 }
 
-function populateStudents() {
-    this.addStudent("Kevin Pansawira", "1", "UCSD", "2018", "Computer Science", "3.99", "none", "kpan.jpg");
+
+function retrieveLocalData(){
+  /*  var retrivedCompanies = localStorage.getItem('allCompanies');
+    retrivedCompanies = JSON.parse(retrivedCompanies);
+    allCompanies = retrivedCompanies;
+    console.log("Printing all companies");
+    console.log(allCompanies);*/
+
+    var retrievedStudents = localStorage.getItem('allStudents');
+    retrievedStudents = JSON.parse(retrievedStudents);
+    allStudents = retrievedStudents;
+    console.log("Printing all students");
+    console.log(allStudents);
 }
 
-function populateForm(studentId) {
-    var student;
-    //console.log("Hello");
-    for (var i = 0; i < allStudents.length; i++) {
-        if (this.allStudents[i].sid == studentId) {
-
-            student = allStudents[i];
-            // console.log(photo);
-        }
-    }
-
-    var URL = student.profilePic;
-    field = document.querySelector('#imgURL');
-    field.value = URL;
-    console.log(field.value);
-
-    var fullname = student.name;
-    field = document.querySelector('#name');
-    field.value = fullname;
-    console.log(field.value);
-
-    var school = student.school;
-    field = document.querySelector('#schoolname');
-    field.value = school;
-    console.log(field.value);
-
-    var year = student.year;
-    field = document.querySelector('#year');
-    field.value = year;
-    console.log(field.value);
-
-    var major = student.major;
-    field = document.querySelector('#major');
-    field.value = major;
-    console.log(field.value);
-
-    var gpa = student.GPA;
-    field = document.querySelector('#gpa');
-    field.value = gpa;
-    console.log(field.value);
-
-    var intern = student.company;
-    field = document.querySelector('#intern');
-    field.value = intern;
-    console.log(field.value);
+function populateForm() {
+    for(var i = 0; i < allStudents.length; i++){
+		if(this.allStudents[i].sid == studentId){
+			document.getElementById("imgURL").value = allStudents[i].profilePic;
+            document.getElementById("name").value = allStudents[i].name;
+            document.getElementById("schoolname").value = allStudents[i].school;
+            document.getElementById("year").value = allStudents[i].year;
+            document.getElementById("major").value = allStudents[i].major;
+            document.getElementById("gpa").value = allStudents[i].GPA;
+            document.getElementById("internship").value = allStudents[i].company;
+         
+		}
+	}
+    
 }
 
-function resetForm(){
+function onClickReset(){
     document.getElementById("imgURL").reset();
     document.getElementById("name").reset(); 
     document.getElementById("schoolname").reset(); 
@@ -75,35 +51,40 @@ function resetForm(){
     document.getElementById("intern").reset(); 
 }
 
-function updateProfile(){
-    student = allStudents[1];
-    student.profilePic = document.getElementById("imgURL").value;
-    student.name = document.getElementById("name").value; 
-    student.school = document.getElementById("schoolname").value; 
-    student.year = document.getElementById("year").value; 
-    student.major = document.getElementById("major").value; 
-    student.GPA = document.getElementById("gpa").value;
+function onClickSave(){
+    console.log("Updating Profile");
+    console.log("studentId" + studentId);
+
+    for(var i = 0; i < allStudents.length; i++){
+		if(this.allStudents[i].sid == studentId){
+			allStudents[i].profilePic = document.getElementById("imgURL").value;
+            allStudents[i].name = document.getElementById("name").value; 
+            allStudents[i].school = document.getElementById("schoolname").value; 
+            allStudents[i].year = document.getElementById("year").value; 
+            allStudents[i].major = document.getElementById("major").value; 
+            allStudents[i].GPA = document.getElementById("gpa").value;
+            //allStudents[i].intern = document.getElementById("Intern").value;
+            break;
+		}
+	}
     
-    //document.getElementById("intern").value;
-    console.log(allStudent);
-	localStorage.setItem('allStudents',JSON.stringify(allStudent));
-	console.log("Initialized local storage");
+    console.log(allStudents);
+    localStorage.setItem('allStudents',JSON.stringify(allStudents));
+    window.history.back();
 }
 
-function updateImg(){
+function previewImg(){
     var imgURL = document.getElementById("imgURL").value;
     document.getElementById("profileImg").src = imgURL;
 }
 
-function retrieveLocalData(){
-    var retrivedStudents = localStorage.getItem('allStudents');
-    retrivedStudents = JSON.parse(retrivedStudents);
-    allStudents = retrievedStudents;
-    console.log(allStudents);
+function onClickCancel(){
+	window.history.back();
 }
 
+
 window.onload = function() {
-    //populateStudents();
     retrieveLocalData();
-    populateForm(1);
+    studentId = getParameterByName('studentId');
+    populateForm();
 }

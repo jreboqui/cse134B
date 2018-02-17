@@ -1,3 +1,5 @@
+var studentId;
+
 function populateSidebar(studentId) {
 
     var student;
@@ -169,13 +171,19 @@ function retrieveLocalData1(){
     console.log(allStudents);
 }
 
+function onClickEdit(){
+	location.href = "edit_profile.html" + "?studentId=" + studentId;
+}
+
 window.onload = function() {
     
     retrieveLocalData1();
+    studentId = 1;
+   // studentId = getParameterByName('studentId');
 
-    populateSidebar(1);
+    populateSidebar(studentId);
 
-    populateApplicationTable(1);
+    populateApplicationTable(studentId);
 
     populateOpenings();
 

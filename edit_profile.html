@@ -5,6 +5,7 @@
     <title> Edit Profile </title>
     <script type="text/javascript" src="objects.js"></script>
     <script type="text/javascript" src="edit_profile.js"></script>
+    
 <!--meta name="viewport" content="width=device-width, initial-scale=1"-->
 <style>
 body{
@@ -27,18 +28,6 @@ input[type=text], select {
     box-sizing: border-box;
 }
 
-input[type=submit] {
-    width: 20%;
-    background-color: #4CAF50;
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    float:right;
-}
-
 input[type=reset] {
     width: 20%;
     background-color: #008CBA;
@@ -50,12 +39,24 @@ input[type=reset] {
     cursor: pointer;
 }
 
-input[type=submit]:hover {
-    background-color: #45a049;
-}
-
 input[type=reset]:hover {
   background-color: #01779e; 
+}
+
+.button-submit {
+    width: 20%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    float:right;
+}
+
+.button-submit:hover {
+    background-color: #45a049;
 }
 
 .button-cancel {
@@ -90,11 +91,11 @@ textarea {
     <hr>    
     <div class="profile">
         <form name="profile">
-            <img id="profileImg" src="kpan.jpg" alt="No Image Found" width="150" height="150"><br>
+            <img id="profileImg" src="" alt="No Image Found" width="150" height="150"><br>
         
             <label for="imgURL">Enter Image URL:</label>
             <input type="text" id="imgURL"><br>
-            <button type="button" onClick="updateImg()"> Change Profile Picture</button> <br> <br>
+            <button type="button" onClick="previewImg()"> Change Profile Picture</button> <br> <br>
         
             <label for="name">Full name:</label>
             <input type="text" id="name"><br>
@@ -117,9 +118,10 @@ textarea {
             <!--
             <button type="button">Upload Resume</button> <br> -->
 
-            <input type="reset" value="Reset" onClick="resetForm()">
-            <button class=" button-cancel" type="button" style="float: left">Cancel</button>
-            <input type="submit" value="Save Changes" onClick="updateProfile()">
+            <input type="reset" value="Reset" onClick="onClickReset()">
+            <button class=" button-cancel" type="button" style="float: left" onClick="onClickCancel()">Cancel</button>
+           <!-- <input type="submit" value="Save Changes" onClick="onClickSave()"> -->
+           <button class="button-submit" type="button" onClick="onClickSave()">Save Changes</button>
 
     </form>
 </div>
