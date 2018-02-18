@@ -1,93 +1,85 @@
 <!DOCTYPE html>
-<head>
-  <meta charset="UTF-8">
-  <title>Current Opening</title>
 
-  <link href='style.css' rel='stylesheet' type='text/css'>
-  <script type="text/javascript" src="objects.js"></script>
-  <script type="text/javascript" src="current_job_posting.js"></script>
+<head>
+    <meta charset="UTF-8">
+    <title>Current Opening</title>
+
+    <link href='style.css' rel='stylesheet' type='text/css'>
+    <script type="text/javascript" src="objects.js"></script>
+    <script type="text/javascript" src="current_job_posting.js"></script>
 
 </head>
 
 <body>
-  <!-- <div class="banner"></div> -->
-  <div id="id-banner" class="jumbotron jumbotron-fluid"></div>
-	<div>
-		<div id="id-curr-job-title" class="curr-job-title" style="padding-left: 1%"> 
-		</div>
+    <!-- <div class="banner"></div> -->
+    <div id="id-banner" class="jumbotron jumbotron-fluid"></div>
+    <div>
+        <div id="id-curr-job-title" class="curr-job-title" style="padding-left: 1%">
+        </div>
 
-		<div style="padding-top: 15px" class="extra-buttons">
-			
-			<button  id="btn-filled" class="btn btn-success" type="button">Filled</button>
-			<button  id="btn-apply" onclick="onClickApply()" style="padding-left:15px;padding-right: 15px;padding-top:10px;padding-bottom: 10px;" class="btn btn-success" type="button">Apply</button>				
-			<button id="btn-edit"  onclick="onClickEdit()" class="btn btn-primary" type="button">Edit</button>
-			<button id="btn-remove" class="btn btn-danger" type="button">Remove</button>
+        <div style="padding-top: 15px" class="extra-buttons">
 
-		</div>
-	</div>
-		<hr style="clear:both">
-		<div class="open-jobs curr-job-description">
+            <button id="btn-filled" class="btn btn-success" type="button">Filled</button>
+            <button id="btn-apply" onclick="onClickApply()" style="padding-left:15px;padding-right: 15px;padding-top:10px;padding-bottom: 10px;" class="btn btn-success" type="button">Apply</button>
+            <button id="btn-edit" onclick="onClickEdit()" class="btn btn-primary" type="button">Edit</button>
+            <button id="btn-remove" class="btn btn-danger" type="button">Remove</button>
 
-				<div style="padding-left: 1%; clear:both">
-					<h2><u>Job Description</u></h2>
-					<p id="id-p-job-description" style="white-space:pre-wrap;"></p>
+        </div>
+    </div>
+    <hr style="clear:both">
+    <div class="open-jobs curr-job-description">
 
-					<br>
-					<h2><u>Requirements</u></h2>
+        <div style="padding-left: 1%; clear:both">
+            <h2><u>Job Description</u></h2>
+            <p id="id-p-job-description" style="white-space:pre-wrap;"></p>
 
-					<p id="id-p-requirements" style="white-space:pre-wrap;"></p>
+            <br>
+            <h2><u>Requirements</u></h2>
 
-				</div>
-		</div>
+            <p id="id-p-requirements" style="white-space:pre-wrap;"></p>
 
-	<div class="extra">
-	    <!--<div id="company_details">!-->
-	      <h4>Company Details:</h4>
-	      <ul id="id-comp-details">
-	      </ul>  
+        </div>
+    </div>
 
-	      <hr>
+    <div class="extra">
+        <!--<div id="company_details">!-->
+        <h4>Company Details:</h4>
+        <ul id="id-comp-details">
+        </ul>
 
-	      <div class="photos">
-	        <h4>Photos:</h4>
-	        <div>
-	          <ul id="id-ul-photos" class="ul-photo-list">
-	          </ul>
-	        </div>
-	      </div>
+        <hr>
 
-	    <!--</div>!--> 
-  	</div> <!--End of extra div!-->
+        <div class="photos">
+            <h4>Photos:</h4>
+            <div>
+                <ul id="id-ul-photos" class="ul-photo-list">
+                </ul>
+            </div>
+        </div>
 
-	
-	<!--Start of applicant lists!-->	
-	<div class="applicants" style="clear:both">
-		<hr>
-		<h2 style="padding-left: 1%">List of Applicants</h2>
-		<ul id="ul-applicants" style="list-style:none">
-			<li>
-				<img src="pp1.JPEG" alt="image" width="200" height="200">
-				<p>Hao Yang<br>UC San Diego<br>Undergraduate Student<br>Junior, GPA: 3.55</p>
-			</li>
-            <li>
-            	<img src="pp1.JPEG" alt="image" width="200" height="200">
-				<p>Isaac Newton<br>UC Berkeley<br>Undergraduate Student<br>Sophomore, GPA: 3.99</p>
-            </li>
-            <li>
-            	<img src="pp1.JPEG" alt="image" width="200" height="200">
-				<p>Gary Professionalism<br>UC San Diego<br>Undergraduate Student<br>Senior, GPA: 2.85</p>
-            </li>
-		</ul>
-	</div><!--End of Applicant list div!-->
+        <!--</div>!-->
+    </div>
+    <!--End of extra div!-->
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-  <!-- Latest compiled and minified CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
-  <!-- Optional theme -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <!--Start of applicant lists!-->
+    <div class="applicants" style="clear:both">
+        <hr>
+        <h2 style="padding-left: 1%">List of Applicants</h2>
+        <ul id="ul-applicants" style="list-style:none">
 
-  <!-- Latest compiled and minified JavaScript -->
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        </ul>
+    </div>
+    <!--End of Applicant list div!-->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
 </body>
