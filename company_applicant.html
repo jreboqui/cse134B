@@ -92,10 +92,10 @@
         <div id="profileInfo" class="image">
         </div>
         <br><br>
-        <h3>APPLICATION STATUS</h3>
+        <h3 id="h3stat">APPLICATION STATUS</h3>
         <img id="progressbar" src="progress_appliedgreen2.jpg" alt="Image not found" width="500" height="120"> <br>
 
-        <label for="userType"><b>Status as:<b></label><br>
+        <label id="label1" for="userType"><b>Status as:<b></label><br>
         <select id="dropdown" onchange="setProgress();">
                   <option value="s">Screening</option>
                   <option value="i">Interview</option>
@@ -105,7 +105,7 @@
         <br>
         <button id="offer" class="button-offer" type="button">Offer</button>
         <button id="reject" class="button-reject" type="button">Reject</button>
-        <button id="message" class="button-message" type="button">Message</button>
+        <button id="message" class="button-message" onclick="onClickMessage()" type="button">Message</button>
 
         <br><br>
         <button id="board" class="button-board" type="button">Invite to Board</button>

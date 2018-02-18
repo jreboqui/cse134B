@@ -51,11 +51,22 @@ function populateStudentProfile(studentId) {
     info.appendChild(status);
 }
 
+
+function onClickMessage() {
+    location.href = "messaging.html";
+}
+
 function setButtons() {
     console.log("setButtons called");
     if (userType != 'c') {
         document.getElementById("offer").style.display = 'none';
         document.getElementById("reject").style.display = 'none';
+
+        document.getElementById('progressbar').style.display = 'none';
+        document.getElementById('h3stat').style.display = 'none';
+        document.getElementById('label1').style.display = 'none';
+        document.getElementById('dropdown').style.display = 'none';
+
     }
 
 }
@@ -164,5 +175,6 @@ window.onload = function() {
     jobId = getParameterByName('jobId');
     populateStudentProfile(studentId);
     setButtons();
+
     populateOtherApplicants(companyId, jobId, studentId);
 }
