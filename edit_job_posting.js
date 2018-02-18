@@ -57,7 +57,8 @@ function onClickSave(){
 	}
 
 	localStorage.setItem('allCompanies',JSON.stringify(allCompanies));
-	window.history.back();
+	location.href="current_job_posting.html" + "?edit=1&companyId=" + companyId + "&id=" + jobId;
+	//window.history.back();
 }
 
 function onClickCancel(){
