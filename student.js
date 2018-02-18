@@ -1,4 +1,6 @@
 var studentId;
+var tutorId;
+var userType;
 
 function getParameterByName(name, url) {
     if (!url) url = window.location.href;
@@ -10,55 +12,98 @@ function getParameterByName(name, url) {
     return decodeURIComponent(results[2].replace(/\+/g, " "));
 }
 
-function populateSidebar(studentId) {
+function populateSidebar(Id) {
+    var name;
+    if (userType == 's'){
+        var student;
+        var photo;
+        var studentStat;
+        var major;
+        var school;
+        var gpa;
+        var year;
 
-    var student;
-
-    for (var i = 0; i < allStudents.length; i++) {
-        if (this.allStudents[i].sid == studentId) {
-
-            student = allStudents[i];
-
+        for (var i = 0; i < allStudents.length; i++) {
+            if (this.allStudents[i].sid == Id) {
+    
+                student = allStudents[i];
+    
+            }
         }
+        name = student.name;
+        photo = student.profilePic;
+        studentStat = student.status;
+        school = student.school;
+        major = student.major;
+        gpa = student.GPA;
+        year = student.year;
+    } else {
+        var tutor;
+        for (var i = 0; i < allTutors.length; i++) {
+            if (this.allTutors[i].tutorId == Id) {
+
+                tutor = allTutors[i];
+    
+            }
+        }
+        name = tutor.name;
+        photo = tutor.profilePic;
+        school = tutor.school;
+        major = tutor.major;
+        gpa = tutor.GPA;
+        minor = tutor.minor;
+        year = tutor.year;
+        intern = tutor.intern;
     }
 
-    var photo;
+   
+
 
     var info = document.getElementById('profileInfo');
 
-    var name = document.createElement("p");
-    var studentName = document.createTextNode(student.name);
-    name.appendChild(studentName);
-    info.appendChild(name);
+   
 
     //var name = document.getElementById('name');
     //name.innerHTML = student.name;
 
 
     var pic = document.createElement("img");
-    pic.setAttribute('src', student.profilePic);
-    pic.setAttribute('alt', "Kevin Pansawira");
+    pic.setAttribute('src', photo);
+    pic.setAttribute('alt', name);
     pic.setAttribute('width', "200");
     pic.setAttribute('height', "200");
 
     info.appendChild(pic);
 
+    var pElem = document.createElement("p");
+    var stName = document.createTextNode(name);
+    pElem.appendChild(stName);
+    info.appendChild(pElem);
+
     var status = document.createElement("p");
-    var studentStatus = document.createTextNode("Status: " + student.status);
-    status.appendChild(studentStatus);
-    status.appendChild(document.createElement("br"));
-    var studentSchool = document.createTextNode("School : " + student.school);
+    if (userType == 's'){
+        var studentStatus = document.createTextNode("Status: " + studentStat);
+        status.appendChild(studentStatus);
+        status.appendChild(document.createElement("br"));
+    }
+    
+    var studentSchool = document.createTextNode("School : " + school);
     status.appendChild(studentSchool);
     status.appendChild(document.createElement("br"));
-    var studentMajor = document.createTextNode("Major : " + student.major);
+    var studentMajor = document.createTextNode("Major : " + major);
     status.appendChild(studentMajor);
     status.appendChild(document.createElement("br"));
-    var studentGPA = document.createTextNode("GPA : " + student.GPA);
+    var studentGPA = document.createTextNode("GPA : " + gpa);
     status.appendChild(studentGPA);
     status.appendChild(document.createElement("br"));
-    var studentYear = document.createTextNode("Year : " + student.year);
+    var studentYear = document.createTextNode("Year : " + year);
     status.appendChild(studentYear);
-
+    status.appendChild(document.createElement("br"));
+    if (userType == 't'){
+        var studentStatus = document.createTextNode("Previous Internship: " + intern);
+        status.appendChild(studentStatus);
+        
+    }
 
     info.appendChild(status);
 
@@ -208,6 +253,15 @@ function retrieveLocalData1() {
     allStudents = retrievedStudents;
     console.log("Printing all students");
     console.log(allStudents);
+
+    var retrievedTutors = localStorage.getItem('allTutors');
+    retrievedTutors = JSON.parse(retrievedTutors);
+    allTutors = retrievedTutors;
+    console.log("Printing all Tutors");
+    console.log(allTutors);
+
+    userType = localStorage.getItem('userType');
+
 }
 
 function onClickEdit() {
@@ -217,14 +271,30 @@ function onClickEdit() {
 window.onload = function() {
 
     retrieveLocalData1();
-    //studentId = 1;
-    studentId = getParameterByName('studentId');
-    console.log(studentId);
+    
+    if (userType == 's'){
+        console.log("Student usertype");
+        studentId = getParameterByName('studentId');
+        console.log(studentId);
 
-    populateSidebar(studentId);
+        populateSidebar(studentId);
 
-    populateApplicationTable(studentId);
+        populateApplicationTable(studentId);
 
-    populateOpenings();
+        populateOpenings();
 
+    }
+
+    else {
+        console.log("Tutor usertype");
+        tutorId = getParameterByName('tutorId');
+        console.log(tutorId);
+
+        populateSidebar(tutorId);
+
+        populateOpenings();
+
+        
+    }
+    
 }

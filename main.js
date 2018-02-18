@@ -153,12 +153,12 @@
 	            }
 	        }
 	    } else if (type == "t") {
-	        for (var i = 0; i < allCompanies.length; i++) {
-	            if (allStudents[i].userName == uname && allCompanies[i].password == psw) {
+	        for (var i = 0; i < allTutors.length; i++) {
+	            if (allTutors[i].username == uname && allTutors[i].password == psw) {
 	                localStorage.setItem("userType", type);
-	                localStorage.setItem("userId", allCompanies[i].id);
+	                localStorage.setItem("userId", allTutors[i].tutorId);
 	                alert("Sign in Successful!");
-	                location.href = "profile.html";
+	                location.href = "profile_page.html?tutorId=" + allTutors[i].tutorId;
 	                valid = true;
 	            }
 	        }
@@ -170,13 +170,41 @@
 
 	}
 
+	//------------------TUTOR OBJECT
+	function addTutor(username, password, name, tutorId, school, year, major, GPA, minor, intern, profilePic){
+		var newTutor = Object.create(Tutor);
+
+	    newTutor.name = name;
+	    newTutor.tutorId = tutorId;
+	    newTutor.school = school;
+	    newTutor.year = year;
+	    newTutor.major = major;
+	    newTutor.GPA = GPA;
+	    newTutor.minor = minor;
+	    newTutor.profilePic = profilePic;
+	    newTutor.username = username;
+	    newTutor.password = password;
+		newTutor.intern = intern;
+		newTutor.mentees = [];
+
+	    this.allTutors.push(newTutor);
+	}
+	
+	function populateTutors() {
+		this.addTutor("smarket","sm123","Sunshine Supermarket", "1", "Caltech", "2018", "Computer Science", "4.0", "Business", "Alibaba", "tutor2.jpg");	
+		this.addTutor("goody","goody123","Goody Burrito", "2", "Harvard", "2018", "Computer Science", "4.0", "Business", "Jane Street", "tutor3.jpg");	
+	}
+
 	window.onload = function() {
 	    populateCompanies();
 	    populateStudents();
+		populateTutors();
 	    addPosition(1);
 	    console.log(allCompanies);
-	    console.log(allStudents);
+		console.log(allStudents);
+		console.log(allTutors);
 	    localStorage.setItem('allCompanies', JSON.stringify(allCompanies));
 	    localStorage.setItem('allStudents', JSON.stringify(allStudents));
+	    localStorage.setItem('allTutors', JSON.stringify(allTutors));
 	    console.log("Initialized local storage");
 	}
