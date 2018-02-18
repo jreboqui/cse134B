@@ -1,41 +1,37 @@
-	function addMail(type,id,senderType,senderId,message){
-		var newMessage = Object.create(mail);
-		newMessage.senderId = senderId;
-		newMessage.senderType = senderType;
-		newMessage.message = message;
+	function addMail(type, id, senderType, senderId, message) {
+	    var newMessage = Object.create(mail);
+	    newMessage.senderId = senderId;
+	    newMessage.senderType = senderType;
+	    newMessage.message = message;
 
-		if(type == "c"){
-			for(var i=0; i< allCompanies.length; i++){
-				if(allCompanies[i].id == id){
-					allCompanies[i].mailing.push(newMessage);
-					console.log("Added new message!");
-					console.log(allCompanies);
-					break;
-				}
-			}
-		}
-
-		else if(type == "s"){
-			for(var i=0; i< allStudents.length; i++){
-				if(allStudents[i].sid == id){
-					allStudents[i].mailing.push(newMessage);
-					console.log("Added new message!");
-					console.log(allStudents);
-					break;
-				}
-			}
-		}
-
-		else if(type == "t"){
-			for(var i=0; i< allTutors.length; i++){
-				if(allTutors[i].sid == id){
-					allTutors[i].mailing.push(newMessage);
-					console.log("Added new message!");
-					console.log(allTutors);
-					break;
-				}
-			}
-		}
+	    if (type == "c") {
+	        for (var i = 0; i < allCompanies.length; i++) {
+	            if (allCompanies[i].id == id) {
+	                allCompanies[i].mailing.push(newMessage);
+	                console.log("Added new message!");
+	                console.log(allCompanies);
+	                break;
+	            }
+	        }
+	    } else if (type == "s") {
+	        for (var i = 0; i < allStudents.length; i++) {
+	            if (allStudents[i].sid == id) {
+	                allStudents[i].mailing.push(newMessage);
+	                console.log("Added new message!");
+	                console.log(allStudents);
+	                break;
+	            }
+	        }
+	    } else if (type == "t") {
+	        for (var i = 0; i < allTutors.length; i++) {
+	            if (allTutors[i].sid == id) {
+	                allTutors[i].mailing.push(newMessage);
+	                console.log("Added new message!");
+	                console.log(allTutors);
+	                break;
+	            }
+	        }
+	    }
 	}
 
 	function addCompany(username, password, name, id, bannerUrl, hq, size, industry, website, photosUrl, logoUrl, title, description) {
@@ -158,16 +154,31 @@
 
 	function populateStudents() {
 	    this.addStudent("Kevin Pansawira", "1", "UCSD", "2018", "Computer Science", "3.99", "none", "kpan.jpg", "kp", "kp12345", "SalesForce");
-	    this.addStudent("Michael Angelo", "2", "MIT", "2018", "Arts", "3.98", "none", "kpan.jpg", "ma", "ma12345", "None");
+	    this.addStudent("Michael Angelo", "2", "MIT", "2018", "Arts", "3.98", "none", "pp1.jpeg", "ma", "ma12345", "None");
+	    this.addStudent("Jang Nara ", "3", "Caltech", "2018", "Cogsci", "4.0", "none", "pp2.jpg", "jnara", "jn12345", "None");
+	    this.addStudent("Lemon Ginger", "4", "UCB", "2018", "Math", "3.7", "none", "pp1.jpg", "lg", "lg12345", "None");
+	    this.addStudent("Ariwasnap Nivek", "5", "UCI", "2019", "Computer Science", "4.0", "none", "intern1.jpg", "arNiv", "pk123", "Hooli");
+
 	    console.log("populateStudents done");
 
-	    this.addApplication("1", "1", "1", "Software Engineering Intern", "Phase 1");
-		this.addApplication("1", "1", "2", "Data Science Intern", "Rejected");
+	    this.addApplication("1", "1", "1", "Software Engineering Intern", "Screening");
+	    this.addApplication("1", "1", "2", "Data Science Intern", "Rejected");
+	    this.addApplication("2", "2", "1", "SWE Intern", "Interview");
+	    this.addApplication("3", "1", "1", "Software Engineering Intern", "Interview");
+	    this.addApplication("4", "2", "1", "SWE Intern", "Review");
+	    this.addApplication("5", "2", "1", "SWE Intern", "Review");
+
+
 	    console.log("added applications");
 
 	    //addMail(type,id,senderType,senderId,message)
-	    this.addMail("s",1,"c",1,"Dear Applicant, \n We are exicted to invite you to have an interview with us for the Data Science Intern Position\n If you're still interested, Please reply back within 7 days with your availibility\n\n Thanks,\nAmazon, Inc.");
-	    this.addMail("s",1,"c",2,"Dear Applicant, \n We are exicted to invite you to have an interview with us for the SWE Intern Position\n If you're still interested, Please reply back within 7 days with your availibility\n\n Thanks,\nSalesforce.com.");
+	    this.addMail("s", 1, "c", 1, "Dear Applicant, \n We are exicted to invite you to have an interview with us for the Data Science Intern Position\n If you're still interested, Please reply back within 7 days with your availibility\n\n Thanks,\nAmazon, Inc.");
+	    this.addMail("s", 1, "c", 2, "Dear Applicant, \n We are exicted to invite you to have an interview with us for the SWE Intern Position\n If you're still interested, Please reply back within 7 days with your availibility\n\n Thanks,\nSalesforce.com.");
+	    this.addMail("s", 1, "c", 1, "Dear Applicant, \n We are exicted to invite you to have an interview with us for the Data Science Intern Position\n If you're still interested, Please reply back within 7 days with your availibility\n\n Thanks,\nAmazon, Inc.");
+	    this.addMail("s", 1, "c", 2, "Dear Applicant, \n We are exicted to invite you to have an interview with us for the SWE Intern Position\n If you're still interested, Please reply back within 7 days with your availibility\n\n Thanks,\nSalesforce.com.");
+	    this.addMail("s", 2, "c", 2, "Dear Applicant, \n We are exicted to invite you to have an interview with us for the SWE Intern Position\n If you're still interested, Please reply back within 7 days with your availibility\n\n Thanks,\nSalesforce.com.");
+	    this.addMail("s", 1, "t", 1, "Wanna pass your interview? \n It's only gonna cost you your life and soul to satan! \n Message me!");
+	    this.addMail("s", 2, "t", 2, "Wanna pass your interview? \n It's only gonna cost you your life and soul to satan! \n Message me!");
 
 	}
 
@@ -219,8 +230,8 @@
 	}
 
 	//------------------TUTOR OBJECT
-	function addTutor(username, password, name, tutorId, school, year, major, GPA, minor, intern, profilePic){
-		var newTutor = Object.create(Tutor);
+	function addTutor(username, password, name, tutorId, school, year, major, GPA, minor, intern, profilePic) {
+	    var newTutor = Object.create(Tutor);
 
 	    newTutor.name = name;
 	    newTutor.tutorId = tutorId;
@@ -232,49 +243,56 @@
 	    newTutor.profilePic = profilePic;
 	    newTutor.username = username;
 	    newTutor.password = password;
-		newTutor.intern = intern;
-		newTutor.mentees = [];
-		newTutor.mailing = [];
+	    newTutor.intern = intern;
+	    newTutor.mentees = [];
+	    newTutor.mailing = [];
 
 	    this.allTutors.push(newTutor);
 	}
 
-	function addMentee(tutorId, studentName, companyName, date){
-		var newMentee = Object.create(mentee);
-		console.log("called addMentee");
+	function addMentee(tutorId, studentName, companyName, date) {
+	    var newMentee = Object.create(mentee);
+	    console.log("called addMentee");
 	    newMentee.studentName = studentName;
 	    newMentee.companyName = companyName;
-		newMentee.date = date;
-		console.log(newMentee);
-		console.log(allTutors.length);
+	    newMentee.date = date;
+	    console.log(newMentee);
+	    console.log(allTutors.length);
 	    for (i = 0; i < this.allTutors.length; i++) {
 	        if (this.allTutors[i].tutorId == tutorId) {
-				console.log("check if statement");
-				console.log(allTutors[i]);
-				allTutors[i].mentees.push(newMentee);
+	            console.log("check if statement");
+	            console.log(allTutors[i]);
+	            allTutors[i].mentees.push(newMentee);
 	            break;
 	        }
 	    }
-	
-	}
-	
-	function populateTutors() {
-		this.addTutor("smarket","sm123","Sunshine Supermarket", "1", "Caltech", "2018", "Computer Science", "4.0", "Business", "Alibaba", "tutor2.jpg");	
-		this.addTutor("goody","goody123","Goody Burrito", "2", "Harvard", "2018", "Computer Science", "4.0", "Business", "Jane Street", "tutor3.jpg");	
 
-		this.addMentee("1","Kevin Pansawira", "Amazon Inc.", "03-01-2018");
-	    this.addMentee("1","Ariwasnap Nivek", "Salesforce", "03-10-2018");
+	}
+
+	function populateTutors() {
+	    this.addTutor("smarket", "sm123", "Sunshine Supermarket", "1", "Caltech", "2018", "Computer Science", "4.0", "Business", "Alibaba", "tutor2.jpg");
+	    this.addTutor("goody", "goody123", "Goody Burrito", "2", "Harvard", "2018", "Computer Science", "4.0", "Business", "Jane Street", "tutor3.jpg");
+	    this.addTutor("gary", "professionalism", "Some hobo", "3", "UCSD", "2018", "Computer Science", "4.0", "none", "UCSD", "pp1.jpeg");
+
+	    this.addMentee("1", "Kevin Pansawira", "Amazon Inc.", "03-01-2018");
+	    this.addMentee("1", "Ariwasnap Nivek", "Salesforce", "03-10-2018");
+	    this.addMentee("2", "Kevin Pansawira", "Amazon Inc.", "03-01-2018");
+	    this.addMentee("2", "Ariwasnap Nivek", "Salesforce", "03-10-2018");
+	    this.addMentee("3", "Kevin Pansawira", "Amazon Inc.", "03-01-2018");
+	    this.addMentee("3", "Ariwasnap Nivek", "Salesforce", "03-10-2018");
+
 	    console.log("added applications");
+
 	}
 
 	window.onload = function() {
 	    populateCompanies();
 	    populateStudents();
-		populateTutors();
+	    populateTutors();
 	    addPosition(1);
 	    console.log(allCompanies);
-		console.log(allStudents);
-		console.log(allTutors);
+	    console.log(allStudents);
+	    console.log(allTutors);
 	    localStorage.setItem('allCompanies', JSON.stringify(allCompanies));
 	    localStorage.setItem('allStudents', JSON.stringify(allStudents));
 	    localStorage.setItem('allTutors', JSON.stringify(allTutors));
