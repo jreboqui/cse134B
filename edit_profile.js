@@ -34,6 +34,8 @@ function populateForm() {
             document.getElementById("schoolname").value = allStudents[i].school;
             document.getElementById("year").value = allStudents[i].year;
             document.getElementById("major").value = allStudents[i].major;
+            document.getElementById("minor").value = allStudents[i].minor;
+            document.getElementById("status").value = allStudents[i].status;
             document.getElementById("gpa").value = allStudents[i].GPA;
             document.getElementById("internship").value = allStudents[i].intern;
          
@@ -48,6 +50,8 @@ function onClickReset(){
     document.getElementById("schoolname").reset(); 
     document.getElementById("year").reset(); 
     document.getElementById("major").reset(); 
+    document.getElementById("minor").reset(); 
+    document.getElementById("status").reset(); 
     document.getElementById("gpa").reset(); 
     document.getElementById("intern").reset(); 
 }
@@ -63,6 +67,8 @@ function onClickSave(){
             allStudents[i].school = document.getElementById("schoolname").value; 
             allStudents[i].year = document.getElementById("year").value; 
             allStudents[i].major = document.getElementById("major").value; 
+            allStudents[i].minor = document.getElementById("minor").value;
+            allStudents[i].status = document.getElementById("status").value;
             allStudents[i].GPA = document.getElementById("gpa").value;
             allStudents[i].intern = document.getElementById("internship").value;
             break;
@@ -71,11 +77,16 @@ function onClickSave(){
     
     console.log(allStudents);
     localStorage.setItem('allStudents',JSON.stringify(allStudents));
-    window.history.back();
+    location.href="profile_page.html" + "?studentId=" + studentId;
 }
 
 function onClickCancel(){
 	window.history.back();
+}
+
+function previewImg(){
+    var previewURL = document.getElementById("imgURL").value;
+    document.getElementById("profileImg").src = previewURL;
 }
 
 function loadImg(){

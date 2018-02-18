@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title> Edit Profile </title>
+    <script type="text/javascript" src="objects.js"></script>
+    <script type="text/javascript" src="register.js"></script>
+    
+<!--meta name="viewport" content="width=device-width, initial-scale=1"-->
+<style>
+body{
+    margin: 0;
+}
+
+.registeration {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+}
+
+input[type=text], select {
+    width: 100%;
+    padding: 10px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+input[type=password]{
+    width: 100%;
+    padding: 10px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type=reset] {
+    width: 20%;
+    background-color: #008CBA;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type=reset]:hover {
+  background-color: #01779e; 
+}
+
+.button-submit {
+    width: 20%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    float:right;
+}
+
+.button-submit:hover {
+    background-color: #45a049;
+}
+
+.button-cancel {
+  width: 20%;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: #d9534f; 
+}
+
+.button-cancel:hover {
+  background-color: #c64541; 
+}
+
+textarea {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    border-radius: 4px;
+    width: 100%;
+    height: 100px;
+}
+
+</style>
+</head>
+<body>
+
+    <h1>Registeration</h1>
+    <hr>    
+    <div class="registeration">
+        <form name="registeration">
+            <label for="name">Fullname / Company Name:</label>
+            <input type="text" id="name"><br>
+
+            <label for="username">Username:</label>
+            <input type="text" id="username"><br>
+
+            <label for="pwd">Password:</label>
+            <input type="password" id="pwd"><br>
+
+            <label for="userType">Who you are:</label><br>
+            <select id="userType" name="userType">
+                <option value="s">Student</option>
+                <option value="t">Tutor</option>
+                <option value="c">Company</option>
+            </select>
+
+            <input type="reset" value="Reset" onClick="onClickReset()">
+            <button class="button-cancel" type="button" style="float: left" onClick="onClickCancel()">Cancel</button>
+            <button class="button-submit" type="button" onClick="onClickSave()">Submit</button>
+    </form>
+</div>
+
+</body>
+</html>

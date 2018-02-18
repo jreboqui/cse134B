@@ -121,6 +121,10 @@ span.psw {
        width: 100%;
     }
 }
+
+.button-register {
+    background-color: rgb(30, 27, 185);
+}
 </style>
 </head>
 <body>
@@ -141,9 +145,14 @@ span.psw {
             <option value="c">Company</option>
       </select>
         
-      <form><button onclick="onClickLogin()" type="button">Login</button></form>
+      <form>
+          <button onclick="onClickLogin()" type="button">Login</button>
+          <button class="button-register" type="button" onClick="location.href='register.html'">Register</button>
+      </form>
 
       <a href="profile_page.html">Click me</a>
+
+      
     </div>
 
 <!-- 
