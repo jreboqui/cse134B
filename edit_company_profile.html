@@ -2,9 +2,9 @@
 <html>
 <head>
     <meta charset="utf-8"/>
-    <title> Edit Tutor Profile </title>
+    <title> Edit Company Profile </title>
     <script type="text/javascript" src="objects.js"></script>
-    <script type="text/javascript" src="edit_tutor_profile.js"></script>
+    <script type="text/javascript" src="edit_company_profile.js"></script>
     
 <!--meta name="viewport" content="width=device-width, initial-scale=1"-->
 <style>
@@ -87,7 +87,7 @@ textarea {
 </head>
 <body>
 
-    <h1>Edit Tutor Profile</h1>
+    <h1>Edit Company Profile</h1>
     <hr>    
     <div class="profile">
         <form name="profile">
@@ -96,27 +96,33 @@ textarea {
             <label for="imgURL">Enter Image URL:</label>
             <input type="text" id="imgURL"><br>
             <button type="button" onClick="loadImg()"> Change Profile Picture</button> <br> <br>
+
+            <img id="bannerImg" src="" alt="No Banner Image Found" width="150" height="150"><br>
         
-            <label for="name">Full name:</label>
+            <label for="bannerURL">Enter Banner URL:</label>
+            <input type="text" id="bannerURL"><br>
+            <button type="button" onClick="loadBannerImg()"> Change Banner Picture</button> <br> <br>
+        
+            <label for="name">Company name:</label>
             <input type="text" id="name"><br>
 
-            <label for="schoolname">School name:</label>
-            <input type="text" id="schoolname"><br>
+            <label for="hq">Headquarters:</label>
+            <input type="text" id="hq"><br>
 
-            <label for="year">Year:</label>
-            <input type="text" id="year"><br>
+            <label for="size">Size:</label>
+            <input type="text" id="size"><br>
 
-            <label for="major">Major:</label>
-            <input type="text" id="major"><br>
+            <label for="industry">Industry:</label>
+            <input type="text" id="industry"><br>
 
-            <label for="minor">Minor:</label>
-            <input type="text" id="minor"><br>
+            <label for="website">Website:</label>
+            <input type="text" id="website"><br>
 
-            <label for="status">Status:</label>
-            <input type="text" id="status"><br>
+            <label for="title">Title:</label>
+            <input type="text" id="title"><br>
 
-            <label for="gpa">GPA:</label>
-            <input type="text" id="gpa"><br>
+            <label for="desc">Description:</label>
+			<textarea id="desc" name="desc" placeholder="Enter description here.."></textarea> <br><br>
 
             <input type="reset" value="Reset" onClick="onClickReset()">
             <button class=" button-cancel" type="button" style="float: left" onClick="onClickCancel()">Cancel</button>
