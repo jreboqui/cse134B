@@ -55,9 +55,7 @@ function populateSidebar(Id) {
         year = tutor.year;
         intern = tutor.intern;
     }
-
    
-
 
     var info = document.getElementById('profileInfo');
 
@@ -110,6 +108,16 @@ function populateSidebar(Id) {
 
 
 }
+
+
+function onClickLogout(){
+        location.href = "login_page.html";
+    }
+
+function onClickMessage(){
+    location.href = "messaging.html";
+}
+
 
 function populateApplicationTable(Id) {
 

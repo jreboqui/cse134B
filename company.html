@@ -25,7 +25,7 @@
     <!---<input class="button button-edit" type="button" value="Edit" style="float: bottom right;">
     <input class="button button-add" type="button" value="Edit" style="float: bottom right;">!-->  
     <div style="padding-left:2%">
-      <button id="btn-add" onClick="addNewPosition(1)" class="button button-add" type="button" style="float: left">Add</button>
+      <button id="btn-add" onClick="addNewPosition(1)" class="btn btn-success" type="button" style="float: left">Add</button>
     </div>   
   </div>
 
@@ -48,7 +48,9 @@
     <!--</div>!-->
 
     <br>
-    <button id="btn-edit" class="button button-edit" type="button" onclick="onClickEdit()">Edit</button> 
+    <button id="btn-edit" style="display: inline-block;" class="btn btn-primary" type="button" onclick="onClickEdit()">Edit</button>
+    <button id="btn-message" class="btn btn-warning" style="margin-top:10px" type="button" onclick="onClickMessage()" style="display: inline-block;">Messaging</button>
+    <button id="btn-logout" class="btn btn-danger" type="button" onclick="onClickLogout()" style="display: inline-block;">Logout</button> 
 
 
   </div>
