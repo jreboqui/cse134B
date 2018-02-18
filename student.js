@@ -68,7 +68,7 @@ function populateSidebar(studentId) {
 
 function populateApplicationTable(studentId) {
 
-
+    console.log("called populateApplicationsTable");
     //Student companies
 
 
@@ -79,7 +79,6 @@ function populateApplicationTable(studentId) {
 
     var trow = document.createElement('TR');
     thead.appendChild(trow);
-
 
     var heading = new Array();
     heading[0] = "Company";
@@ -104,26 +103,45 @@ function populateApplicationTable(studentId) {
         }
     }
 
+    console.log(student);
+
     var myTable = document.getElementById("theContent");
     var table2 = document.createElement('TABLE');
-    var tableBody = document.createElement('TBODY')
-        //console.log(student.companies.length);
-        //console.log(student.companies[0].length);
-    if (student.companies != null) {
-        for (i = 0; i < student.companies.length; i++) {
+    var tableBody = document.createElement('TBODY');
+    //console.log(student.companies.length);
+    //console.log(student.companies[0].length);
+    if (student.applications != null) {
+        console.log("if statement reached");
+        console.log(student.applications.length);
+        for (i = 0; i < student.applications.length; i++) {
+            console.log("inside first for loop");
+            var th1 = document.createElement('TH');
+            var th2 = document.createElement('TH');
+            var th3 = document.createElement('TH');
             var tr = document.createElement('TR');
-            for (j = 0; j < student.companies[i].length; j++) {
-                var th = document.createElement('TH');
-                console.log(student.companies[i][j]);
-                th.appendChild(document.createTextNode(student.companies[i][j]));
-                tr.appendChild(th);
+            console.log(student.applications[i]);
+            console.log(student.applications[i].appStatus);
+            console.log(student.applications[i].positionTitle);
+
+            th2.appendChild(document.createTextNode(student.applications[i].positionTitle));
+            th3.appendChild(document.createTextNode(student.applications[i].appStatus));
+            //get companyName
+            var compName;
+            for (j = 0; j < allCompanies.length; j++) {
+                if (allCompanies[j].id == student.applications[i].companyId) {
+                    compName = allCompanies[i].name;
+                    console.log(compName);
+                }
             }
+            th1.appendChild(document.createTextNode(compName));
+
+            tr.appendChild(th1);
+            tr.appendChild(th2);
+            tr.appendChild(th3);
             tableBody.appendChild(tr);
         }
         table2.appendChild(tableBody);
         myTable.appendChild(table2);
-
-
     } else {
         var tr = document.createElement('TR');
         var th = document.createElement('TH');
@@ -192,8 +210,8 @@ function retrieveLocalData1() {
     console.log(allStudents);
 }
 
-function onClickEdit(){
-	location.href = "edit_profile.html" + "?studentId=" + studentId;
+function onClickEdit() {
+    location.href = "edit_profile.html" + "?studentId=" + studentId;
 }
 
 window.onload = function() {

@@ -12,26 +12,11 @@
 	    newComp.logoUrl = logoUrl;
 	    newComp.openPositions = [];
 	    newComp.title = title;
-	    newComp.description = description
+	    newComp.description = description;
 	    newComp.username = username;
 	    newComp.password = password;
 	    console.log(newComp);
 	    this.allCompanies.push(newComp);
-	}
-
-	function addApplication(studentId, companyId, positionTitle, appStatus) {
-	    var newApp = Object.create(applicationInfo);
-	    newApp.companyId = companyId;
-	    newApp.positionTitle = positionTitle;
-	    newApp.appStatus = appStatus;
-
-	    for (i = 0; i < allStudents.length; i++) {
-	        if (allStudents[i].sid == studentId) {
-	            allStudents[i].applications.push(newApp);
-	            console.log(allStudents[i].applications);
-	            break;
-	        }
-	    }
 	}
 
 	function addPosition(companyName, id, title, location, description, reqs, applicantsId) {
@@ -104,19 +89,37 @@
 	    newStudent.status = "Looking for internship";
 	    newStudent.applications = [];
 	    newStudent.username = username;
-		newStudent.password = password;
-		newStudent.intern = intern;
+	    newStudent.password = password;
+	    newStudent.intern = intern;
 
 	    this.allStudents.push(newStudent);
 	}
 
+	function addApplication(studentId, companyId, positionId, positionTitle, appStatus) {
+	    var newApp = Object.create(applicationInfo);
+	    newApp.companyId = companyId;
+	    newApp.positionTitle = positionTitle;
+	    newApp.positionId = positionId;
+	    newApp.appStatus = "Under Review";
+
+	    for (i = 0; i < allStudents.length; i++) {
+	        if (allStudents[i].sid == studentId) {
+	            allStudents[i].applications.push(newApp);
+	            console.log(allStudents[i].applications);
+	            console.log(allStudents[i]);
+	            break;
+	        }
+	    }
+	}
+
+
 	function populateStudents() {
 	    this.addStudent("Kevin Pansawira", "1", "UCSD", "2018", "Computer Science", "3.99", "none", "kpan.jpg", "kp", "kp12345", "SalesForce");
-	    this.addStudent("Michael Angelo", "2", "MIT", "2018", "Arts", "3.98", "none", "kpan.jpg", "ma", "ma12345","None");
+	    this.addStudent("Michael Angelo", "2", "MIT", "2018", "Arts", "3.98", "none", "kpan.jpg", "ma", "ma12345", "None");
 	    console.log("populateStudents done");
 
-	    this.addApplication("1", "1", "Software Engineering Intern", "Phase 1");
-	    this.addApplication("1", "1", "Data Science Intern", "Rejected");
+	    this.addApplication("1", "1", "1", "Software Engineering Intern", "Phase 1");
+	    this.addApplication("1", "1", "2", "Data Science Intern", "Rejected");
 	    console.log("added applications");
 
 	}
@@ -160,11 +163,11 @@
 	            }
 	        }
 	    }
-	    
-	    if(!valid){
-	    	alert("Incorrect Username and Password combination!");
+
+	    if (!valid) {
+	        alert("Incorrect Username and Password combination!");
 	    }
-	    
+
 	}
 
 	window.onload = function() {
