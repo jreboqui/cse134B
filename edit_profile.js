@@ -28,13 +28,14 @@ function retrieveLocalData(){
 function populateForm() {
     for(var i = 0; i < allStudents.length; i++){
 		if(this.allStudents[i].sid == studentId){
+            document.getElementById("profileImg").src = allStudents[i].profilePic;
 			document.getElementById("imgURL").value = allStudents[i].profilePic;
             document.getElementById("name").value = allStudents[i].name;
             document.getElementById("schoolname").value = allStudents[i].school;
             document.getElementById("year").value = allStudents[i].year;
             document.getElementById("major").value = allStudents[i].major;
             document.getElementById("gpa").value = allStudents[i].GPA;
-            document.getElementById("internship").value = allStudents[i].company;
+            document.getElementById("internship").value = allStudents[i].intern;
          
 		}
 	}
@@ -63,7 +64,7 @@ function onClickSave(){
             allStudents[i].year = document.getElementById("year").value; 
             allStudents[i].major = document.getElementById("major").value; 
             allStudents[i].GPA = document.getElementById("gpa").value;
-            //allStudents[i].intern = document.getElementById("Intern").value;
+            allStudents[i].intern = document.getElementById("internship").value;
             break;
 		}
 	}
@@ -73,15 +74,18 @@ function onClickSave(){
     window.history.back();
 }
 
-function previewImg(){
-    var imgURL = document.getElementById("imgURL").value;
-    document.getElementById("profileImg").src = imgURL;
-}
-
 function onClickCancel(){
 	window.history.back();
 }
 
+function loadImg(){
+    for(var i = 0; i < allStudents.length; i++){
+		if(this.allStudents[i].sid == studentId){
+            document.getElementById("profileImg").src = allStudents[i].profilePic;
+            break;
+        }
+    }
+}
 
 window.onload = function() {
     retrieveLocalData();
