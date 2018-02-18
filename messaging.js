@@ -50,9 +50,80 @@ function createMessageDiv(senderName,message,senderId,senderType){
 }
 
 
-function replyMessage(senderId, senderType, textareaId){
-	var content = document.getElementById(textareaId).value;
-	console.log(content);
+function replyMessage(recepientId, sType, textarea){
+	var message = document.getElementById(textarea.id).value;
+	var recepientType;
+
+	if(sType == 1)
+		recepientType = "s";
+	else if(sType == 2)
+		recepientType = "c";
+	else
+		recepientType = "t";
+
+	//var sender;
+	var recepient;
+
+	// if(userType == "s"){
+	// 	for(var i = 0; i < allStudents.length; i++){
+	// 		if(allStudents[i].sid == userId){
+	// 			sender = allStudents[i];
+	// 			break;	
+	// 		}
+	// 	}
+	// }
+	// else if(userType == "c"){
+	// 	for(var i = 0; i < allCompanies.length; i++){
+	// 		if(allCompanies[i].id == userId){
+	// 			sender = allCompanies[i];
+	// 			break;	
+	// 		}
+	// 	}
+	// }
+	// else{
+	// 	for(var i = 0; i < allCompanies.length; i++){
+	// 		if(allTutors[i].tutorId == userId){
+	// 			sender = allTutors[i];
+	// 			break;	
+	// 		}
+	// 	}	
+	// }
+
+
+	var newMessage = Object.create(mail);
+	newMessage.senderId = userId;
+	newMessage.senderType = userType;
+	newMessage.message = message;
+
+	if(recepientType == "s"){
+		for(var i = 0; i < allStudents.length; i++){
+			if(allStudents[i].sid == recepientId){
+				allStudents[i].mailing.push(newMessage);
+				break;
+			}
+		}
+	}
+	else if(recepientType == "c"){
+		for(var i = 0; i < allCompanies.length; i++){
+			if(allCompanies[i].id == recepientId){
+				allCompanies[i].mailing.push(newMessage);
+				console.log("Reply Sent!");
+				console.log(allCompanies);
+				break;	
+			}
+		}
+	}
+	else{
+		for(var i = 0; i < allCompanies.length; i++){
+			if(allTutors[i].tutorId == recepientId){
+				allTutors[i].mailing.push(newMessage);
+				break;	
+			}
+		}	
+	}
+
+	alert("Reply Sent!");
+
 }
 
 function populateInbox(){
@@ -79,7 +150,7 @@ function populateInbox(){
 	 					}
 	 					else if(allStudents[i].mailing[j].senderType == "t"){
 	 						for(var k = 0; k < allTutors.length; k++){
-	 							if(allStudents[i].mailing[j].senderId == allTutors[k].id){
+	 							if(allStudents[i].mailing[j].senderId == allTutors[k].tutorId){
 	 								createMessageDiv(allTutors[k].name, allStudents[i].mailing[j].message,
 	 									allStudents[i].mailing[j].senderId,allStudents[i].mailing[j].senderType.toString());
 	 							}
@@ -89,6 +160,43 @@ function populateInbox(){
 	 			}
 	 		}
 	 	}
+
+
+	 	if(userType == "c"){
+	 		for(var i = 0; i < allCompanies.length; i++){
+	 			if(allCompanies[i].id == userId){
+	 				for(var j = 0; j < allCompanies[i].mailing.length; j++){
+	 					if(allCompanies[i].mailing[j].senderType == "s"){
+	 						for(var k = 0; k < allStudents.length; k++){
+	 							if(allCompanies[i].mailing[j].senderId == allStudents[k].sid){
+	 								createMessageDiv(allStudents[k].name,allCompanies[i].mailing[j].message,
+	 									allCompanies[i].mailing[j].senderId,allCompanies[i].mailing[j].senderType.toString());
+	 							}
+	 						}
+	 					}
+	 				}
+	 			}
+	 		}
+	 	}
+
+
+	 	if(userType == "t"){
+	 		for(var i = 0; i < allTutors.length; i++){
+	 			if(allTutors[i].id == userId){
+	 				for(var j = 0; j < allTutors[i].mailing.length; j++){
+	 					if(allTutors[i].mailing[j].senderType == "s"){
+	 						for(var k = 0; k < allStudents.length; k++){
+	 							if(allTutors[i].mailing[j].senderId == allStudents[k].sid){
+	 								createMessageDiv(allStudents[k].name,allTutors[i].mailing[j].message,
+	 									allTutors[i].mailing[j].senderId,allTutors[i].mailing[j].senderType.toString());
+	 							}
+	 						}
+	 					}
+	 				}
+	 			}
+	 		}
+	 	}
+
 }
 
 
