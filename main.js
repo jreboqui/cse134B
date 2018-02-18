@@ -146,13 +146,14 @@
 	        for (var i = 0; i < allCompanies.length; i++) {
 	            if (allStudents[i].username == uname && allStudents[i].password == psw) {
 	                localStorage.setItem("userType", type);
-	                localStorage.setItem("userId", allStudents[i].id);
+	                localStorage.setItem("userId", allStudents[i].sid);
 	                alert("Sign in Successful!");
 	                location.href = "profile_page.html?studentId=" + allStudents[i].sid;
 	                valid = true;
 	            }
 	        }
 	    } else if (type == "t") {
+
 	        for (var i = 0; i < allTutors.length; i++) {
 	            if (allTutors[i].username == uname && allTutors[i].password == psw) {
 	                localStorage.setItem("userType", type);
