@@ -143,7 +143,7 @@
 	        for (var i = 0; i < allCompanies.length; i++) {
 	            if (allStudents[i].username == uname && allStudents[i].password == psw) {
 	                localStorage.setItem("userType", type);
-	                localStorage.setItem("userId", allStudents[i].id);
+	                localStorage.setItem("userId", allStudents[i].sid);
 	                alert("Sign in Successful!");
 	                location.href = "profile_page.html?studentId=" + allStudents[i].sid;
 	                valid = true;
@@ -151,7 +151,7 @@
 	        }
 	    } else if (type == "t") {
 	        for (var i = 0; i < allCompanies.length; i++) {
-	            if (allStudents[i].userName == uname && allCompanies[i].password == psw) {
+	            if (allTutors[i].userName == uname && allTutors[i].password == psw) {
 	                localStorage.setItem("userType", type);
 	                localStorage.setItem("userId", allCompanies[i].id);
 	                alert("Sign in Successful!");
