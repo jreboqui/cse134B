@@ -12,7 +12,7 @@
 	    newComp.logoUrl = logoUrl;
 	    newComp.openPositions = [];
 	    newComp.title = title;
-	    newComp.description = description
+	    newComp.description = description;
 	    newComp.username = username;
 	    newComp.password = password;
 	    console.log(newComp);
