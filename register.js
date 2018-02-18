@@ -120,9 +120,9 @@ function onClickSave(){
                 localStorage.setItem('allStudents',JSON.stringify(allStudents));
                 alert("Profile Created");
                 location.href="profile_page.html" + "?studentId=" + studentId;
-                break;
 				//window.location = "profile.html";	
-			}
+            }
+            break;
 		}
     }
     
@@ -139,9 +139,9 @@ function onClickSave(){
                 localStorage.setItem('allTutors',JSON.stringify(allTutors));
                 alert("Profile Created");
                 location.href="profile_page.html" + "?tutorId=" + tutorId;
-                break;
 				//window.location = "profile.html";	
-			}
+            }
+            break;
 		}
 	}
     
