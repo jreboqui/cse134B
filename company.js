@@ -139,11 +139,16 @@ var userType;
 		location.href = "login_page.html";
 	}
 
+	function onClickMessage(){
+        location.href = "messaging.html";
+    }
+
 	function setButton(){
 		if(userType != 'c'){
 			document.getElementById("btn-add").style.visibility='hidden';
 			document.getElementById("btn-edit").style.visibility='hidden';
 			document.getElementById("btn-logout").style.visibility='hidden';
+			document.getElementById("btn-message").style.visibility='hidden';
 		}
 	}
 
