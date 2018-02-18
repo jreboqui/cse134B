@@ -57,7 +57,8 @@ var Student = {
     status,
     applications, //array
     username,
-    password
+    password,
+    intern
 
 }
 

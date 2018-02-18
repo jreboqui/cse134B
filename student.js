@@ -1,5 +1,15 @@
 var studentId;
 
+function getParameterByName(name, url) {
+    if (!url) url = window.location.href;
+    name = name.replace(/[\[\]]/g, "\\$&");
+    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, " "));
+}
+
 function populateSidebar(studentId) {
 
     var student;
@@ -207,8 +217,14 @@ function onClickEdit() {
 window.onload = function() {
 
     retrieveLocalData1();
+<<<<<<< HEAD
     studentId = 1;
     // studentId = getParameterByName('studentId');
+=======
+    //studentId = 1;
+    studentId = getParameterByName('studentId');
+    console.log(studentId);
+>>>>>>> 05efe7e49d26e629d3ab843c74603982ed7afe07
 
     populateSidebar(studentId);
 

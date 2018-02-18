@@ -1,5 +1,6 @@
 var companyId;
 var jobId;
+var userType;
 
 function setJumbotronBackground(companyId){
 	var banner = document.getElementsByClassName("jumbotron");
@@ -128,12 +129,26 @@ function onClickEdit(){
 	location.href = "edit_job_posting.html" + "?companyId=" + companyId + "&id=" + jobId;
 }
 
+function setButton(){
+		if(userType != 'c'){
+			document.getElementById("btn-filled").style.visibility='hidden';
+			document.getElementById("btn-edit").style.visibility='hidden';
+			document.getElementById("btn-remove").style.visibility='hidden';
+		}
+
+		if(userType == 'c'){
+			document.getElementById("btn-apply").style.visibility='hidden';
+		}
+}
+
 
 function retrieveLocalData(){
 		var retrivedCompanies = localStorage.getItem('allCompanies');
 		retrivedCompanies = JSON.parse(retrivedCompanies);
 		allCompanies = retrivedCompanies;
 		console.log(allCompanies);
+
+		userType = localStorage.getItem('userType');
 }
 
 function getParameterByName(name, url) {
@@ -154,4 +169,5 @@ window.onload = function() {
 	fillUpCompanyDetails(companyId);
 	populatePhotoList(companyId);
 	populateJobDescription(companyId,jobId);
+	setButton();
 };

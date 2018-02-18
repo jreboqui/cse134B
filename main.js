@@ -92,7 +92,7 @@
 	}
 
 	//-------------STUDENT OBJECT
-	function addStudent(name, sid, school, year, major, GPA, minor, Pic, username, password) {
+	function addStudent(name, sid, school, year, major, GPA, minor, Pic, username, password, intern) {
 	    var newStudent = Object.create(Student);
 
 	    newStudent.name = name;
@@ -106,14 +106,15 @@
 	    newStudent.status = "Looking for internship";
 	    newStudent.applications = [];
 	    newStudent.username = username;
-	    newStudent.password = password;
+		newStudent.password = password;
+		newStudent.intern = intern;
 
 	    this.allStudents.push(newStudent);
 	}
 
 	function populateStudents() {
-	    this.addStudent("Kevin Pansawira", "1", "UCSD", "2018", "Computer Science", "3.99", "none", "kpan.jpg", "kp", "kp12345");
-	    this.addStudent("Michael Angelo", "2", "MIT", "2018", "Arts", "3.98", "none", "kpan.jpg", "ma", "ma12345");
+	    this.addStudent("Kevin Pansawira", "1", "UCSD", "2018", "Computer Science", "3.99", "none", "kpan.jpg", "kp", "kp12345", "SalesForce");
+	    this.addStudent("Michael Angelo", "2", "MIT", "2018", "Arts", "3.98", "none", "kpan.jpg", "ma", "ma12345","None");
 	    console.log("populateStudents done");
 
 	    this.addApplication("1", "1", "1", "Software Engineering Intern", "Phase 1");
@@ -123,50 +124,11 @@
 	}
 
 	function onClickLogin() {
-	    var type = document.getElementById("type").value;
-	    var uname = document.getElementById("uname").value;
-	    var psw = document.getElementById("psw").value;
-
-	    if (type == "c") {
-	        for (var i = 0; i < allCompanies.length; i++) {
-	            if (allCompanies[i].userName == uname && allCompanies[i].password == psw) {
-	                localStorage.setItem("userType", type);
-	                localStorage.setItem("userId", allCompanies[i].id);
-	                alert("Sign in Successful!");
-	                window.location = "company.html";
-	            }
-	        }
-	    }
-
-	    if (type == "s") {
-	        for (var i = 0; i < allCompanies.length; i++) {
-	            if (allCompanies[i].userName == uname && allCompanies[i].password == psw) {
-	                localStorage.setItem("userType", type);
-	                localStorage.setItem("userId", allCompanies[i].id);
-	                alert("Sign in Successful!");
-	                window.location = "profile.html";
-	            }
-	        }
-	    }
-
-	    if (type == "t") {
-	        for (var i = 0; i < allCompanies.length; i++) {
-	            if (allCompanies[i].userName == uname && allCompanies[i].password == psw) {
-	                localStorage.setItem("userType", type);
-	                localStorage.setItem("userId", allCompanies[i].id);
-	                alert("Sign in Successful!");
-	                window.location = "profile.html";
-	            }
-	        }
-	    }
-
-	}
-
-	function onClickLogin() {
 	    console.log(document.getElementById("userType"));
 	    var type = document.getElementById("userType").value;
 	    var uname = document.getElementById("uname").value;
 	    var psw = document.getElementById("psw").value;
+	    var valid = false;
 
 	    if (type == "c") {
 	        for (var i = 0; i < allCompanies.length; i++) {
@@ -176,7 +138,7 @@
 	                localStorage.setItem("userId", allCompanies[i].id);
 	                alert("Sign in Successful!");
 	                location.href = "company.html?companyId=" + allCompanies[i].id;
-	                break;
+	                valid = true;
 	            }
 	        }
 	    } else if (type == "s") {
@@ -186,6 +148,7 @@
 	                localStorage.setItem("userId", allStudents[i].id);
 	                alert("Sign in Successful!");
 	                location.href = "profile_page.html?studentId=" + allStudents[i].sid;
+	                valid = true;
 	            }
 	        }
 	    } else if (type == "t") {
@@ -195,13 +158,18 @@
 	                localStorage.setItem("userId", allCompanies[i].id);
 	                alert("Sign in Successful!");
 	                location.href = "profile.html";
+	                valid = true;
 	            }
 	        }
 	    }
+	    
+	    if(!valid){
+	    	alert("Incorrect Username and Password combination!");
+	    }
+	    
 	}
 
 	window.onload = function() {
-	    console.log("jahdkjasdhjs");
 	    populateCompanies();
 	    populateStudents();
 	    addPosition(1);
