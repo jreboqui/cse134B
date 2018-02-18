@@ -201,6 +201,60 @@ function addApplication(studentId, compId, positionId, positionTitle, appStatus)
 	    location.href = "profile_page.html" + "?studentId=" + studentId;
 }
 
+
+function populateApplicants(companyId, jobId){
+	var list = document.getElementById('ul-applicants');
+	console.log("in populateApplicants");
+
+	for(var i = 0; i < allStudents.length; i++){
+		console.log("i");
+		for(var j = 0; j < allStudents[i].applications.length; j++){
+			if(companyId == allStudents[i].applications[j].companyId && 
+				allStudents[i].applications[j].positionId == jobId){
+					console.log("inside");
+					var item = document.createElement('li');
+					var photo = document.createElement('img');
+					photo.setAttribute('src',allStudents[i].profilePic);
+					photo.setAttribute('alt','image');
+					photo.setAttribute('height','200px');
+					photo.setAttribute('width','200px');
+					//photo.setAttribute('href',"company_applicant.html?studentId=" +allStudents[i].sid+
+						//"&companyId" + companyId + "&jobId=" + jobId);
+					item.appendChild(photo);
+
+					var detail = document.createElement('h4curr');
+
+					var name = document.createTextNode(allStudents[i].name);
+					var br = document.createElement("br");
+					detail.appendChild(name);
+					detail.appendChild(br);
+
+					var school = document.createTextNode(allStudents[i].school);
+					var br = document.createElement("br");
+					detail.appendChild(school);
+					detail.appendChild(br);
+
+					var gpa = document.createTextNode("GPA: " + allStudents[i].GPA);
+					var br = document.createElement("br");
+					detail.appendChild(gpa);
+					detail.appendChild(br);
+
+					var a = document.createElement("a");
+					a.textContent = allStudents[i].applications[j].appStatus;
+					a.setAttribute('href',"company_applicant.html?studentId=" +allStudents[i].sid+
+						"&companyId" + companyId + "&jobId=" + jobId);
+					detail.appendChild(a);
+
+					item.appendChild(detail);
+					list.appendChild(item);
+					break;
+			}
+		}
+	}
+}
+
+
+
 function onClickApply(){
 	addApplication(userId,companyId,jobId,jobTitle,"");
 }
@@ -217,11 +271,12 @@ function getParameterByName(name, url) {
 
 window.onload = function() {
 	retrieveLocalData();
+	setButton();
 	companyId = getParameterByName('companyId');
 	jobId = getParameterByName('id');
 	setJumbotronBackground(companyId); //Still need to be fixed
 	fillUpCompanyDetails(companyId);
 	populatePhotoList(companyId);
 	populateJobDescription(companyId,jobId);
-	setButton();
+	populateApplicants(companyId,jobId);
 };

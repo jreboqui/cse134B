@@ -2,6 +2,7 @@ var id, title, location, description, reqs, applicantsId;
 var bannerUrl, hq, size, industry, website, photosUrl, logoUrl, openPositions;
 var sid, name, school, year, major, GPA, minor, profilePic, status, positionId, positionTitle, companyId, appStatus, intern, applications, username, password
 var tutorId, studentName, date, mentees, companyName
+var mailing, senderId, senderType,message;
 
 
 var Positions = {
@@ -41,7 +42,8 @@ var Company = {
     title,
     description,
     username,
-    password
+    password,
+    mailing //array
 };
 
 var allCompanies = [];
@@ -61,8 +63,8 @@ var Student = {
     applications, //array
     username,
     password,
-    intern
-
+    intern,
+    mailing //array
 }
 
 var Tutor = {
@@ -77,7 +79,13 @@ var Tutor = {
     intern,
     mentees, //array
     username,
-    password
+    password,
+    mailing //array
 
+}
 
+var mail = {
+    senderId,
+    senderType,
+    message
 }

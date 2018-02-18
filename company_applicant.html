@@ -3,6 +3,8 @@
 <head>
     <meta charset="utf-8"/>
     <title> Applicant Profile </title>
+    <script type="text/javascript" src="objects.js"></script>
+  <script type="text/javascript" src="company_applicant.js"></script>
 <style>
 .main{
     width: 65%;
@@ -10,13 +12,6 @@
     border-right: 1px solid black;
     float: left;
 }   
-
-.sidebar{
-    width: 34%;
-    height: 1000px;
-    float: right;
-    padding-left: 10px;
-}
 
 .profile{
     display: inline-block;
@@ -94,21 +89,10 @@
     <div class="main">
         <h1>Applicant Profile</h1>
         <hr>
-        <div class="image">
-            <img src="kpan.jpg" alt="Image not found" width="150" height="150">
+        <div id="profileInfo" class="image">
         </div>
-        <h3>Name: Kevin Pansawira</h3>
-        <h3>School: UCSD</h3>
-        <h3>Planned Graduation Year: 2019</h3>
-        <h3>Address: 9500 Gilman Drive, La Jolla</h3>
-        <h3>Applied Positions:</h3>
-        <ul>
-            <li>Software Development Engineer Intern</li>
-            <li>Data Science Intern</li>
-            <li>UI Design Intern</li>
-        </ul>
-        <button type="button">Resume Link</button>
-        <h3>STATUS</h3>
+        <br><br>
+        <h3>APPLICATION STATUS</h3>
         <img src="progress_appliedgreen.jpg" alt="Image not found"> <br>
 
 
