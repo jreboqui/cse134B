@@ -129,7 +129,7 @@ function populateApplicationTable(studentId) {
             var compName;
             for (j = 0; j < allCompanies.length; j++) {
                 if (allCompanies[j].id == student.applications[i].companyId) {
-                    compName = allCompanies[i].name;
+                    compName = allCompanies[j].name;
                     console.log(compName);
                 }
             }

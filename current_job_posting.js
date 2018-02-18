@@ -1,6 +1,8 @@
 var companyId;
 var jobId;
 var userType;
+var userId;
+var jobTitle;
 
 function setJumbotronBackground(companyId){
 	var banner = document.getElementsByClassName("jumbotron");
@@ -94,6 +96,7 @@ function populateJobDescription(companyId,jobId){
 	for(var i = 0; i < jobs.length; i++){
 		if(jobs[i].id == jobId){
 			title = jobs[i].title;
+			jobTitle=jobs[i].title;
 			location = jobs[i].location;
 			description = jobs[i].description;
 			requirements = jobs[i].reqs;
@@ -148,7 +151,58 @@ function retrieveLocalData(){
 		allCompanies = retrivedCompanies;
 		console.log(allCompanies);
 
+		var retrievedStudents = localStorage.getItem('allStudents');
+	    retrievedStudents = JSON.parse(retrievedStudents);
+	    allStudents = retrievedStudents;
+	    console.log("Printing all students");
+	    console.log(allStudents);
+
 		userType = localStorage.getItem('userType');
+		userId = localStorage.getItem('userId');
+}
+
+
+function addApplication(studentId, compId, positionId, positionTitle, appStatus) {
+	    var newApp = Object.create(applicationInfo);
+	    newApp.companyId = compId;
+	    newApp.positionTitle = positionTitle;
+	    newApp.positionId = positionId;
+	    newApp.appStatus = "Under Review";
+
+	    for (i = 0; i < allStudents.length; i++) {
+	        if (allStudents[i].sid == studentId) {
+	            allStudents[i].applications.push(newApp);
+	            //console.log("Just added new position to the allStudent object");
+	            //console.log(allStudents[i].applications);
+	            console.log(allStudents[i]);
+	            break;
+	        }
+	    }
+
+	    for(i = 0; i < allCompanies.length; i++){
+	    	if(allCompanies[i].id == compId){
+	    		break;
+	    	}
+	    }
+
+	    for(var j = 0; j < allCompanies[i].openPositions.length; j++){
+	    	if(allCompanies[i].openPositions[j].id == jobId){
+	    		allCompanies[i].openPositions[j].applicantsId.push(studentId);
+	    		//console.log("Just added new applicantId to the allCompanies object");
+	    		//console.log(allCompanies[i].openPositions[j].applicantsId);
+	    		break;
+	    	}
+	    }
+
+	    localStorage.setItem('allCompanies', JSON.stringify(allCompanies));
+	    localStorage.setItem('allStudents', JSON.stringify(allStudents));
+
+	    alert(positionTitle + " position with" + allCompanies[i].name + " has been added to your applications!");
+	    location.href = "profile_page.html" + "?studentId=" + studentId;
+}
+
+function onClickApply(){
+	addApplication(userId,companyId,jobId,jobTitle,"");
 }
 
 function getParameterByName(name, url) {
