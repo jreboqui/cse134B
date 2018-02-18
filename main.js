@@ -119,7 +119,7 @@
 	    console.log("populateStudents done");
 
 	    this.addApplication("1", "1", "1", "Software Engineering Intern", "Phase 1");
-	    this.addApplication("1", "1", "2", "Data Science Intern", "Rejected");
+		this.addApplication("1", "1", "2", "Data Science Intern", "Rejected");
 	    console.log("added applications");
 
 	}
@@ -189,10 +189,33 @@
 
 	    this.allTutors.push(newTutor);
 	}
+
+	function addMentee(tutorId, studentName, companyName, date){
+		var newMentee = Object.create(mentee);
+		console.log("called addMentee");
+	    newMentee.studentName = studentName;
+	    newMentee.companyName = companyName;
+		newMentee.date = date;
+		console.log(newMentee);
+		console.log(allTutors.length);
+	    for (i = 0; i < this.allTutors.length; i++) {
+	        if (this.allTutors[i].tutorId == tutorId) {
+				console.log("check if statement");
+				console.log(allTutors[i]);
+				allTutors[i].mentees.push(newMentee);
+	            break;
+	        }
+	    }
+	
+	}
 	
 	function populateTutors() {
 		this.addTutor("smarket","sm123","Sunshine Supermarket", "1", "Caltech", "2018", "Computer Science", "4.0", "Business", "Alibaba", "tutor2.jpg");	
 		this.addTutor("goody","goody123","Goody Burrito", "2", "Harvard", "2018", "Computer Science", "4.0", "Business", "Jane Street", "tutor3.jpg");	
+
+		this.addMentee("1","Kevin Pansawira", "Amazon Inc.", "03-01-2018");
+	    this.addMentee("1","Ariwasnap Nivek", "Salesforce", "03-10-2018");
+	    console.log("added applications");
 	}
 
 	window.onload = function() {

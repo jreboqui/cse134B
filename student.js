@@ -111,7 +111,7 @@ function populateSidebar(Id) {
 
 }
 
-function populateApplicationTable(studentId) {
+function populateApplicationTable(Id) {
 
     console.log("called populateApplicationsTable");
     //Student companies
@@ -126,10 +126,17 @@ function populateApplicationTable(studentId) {
     thead.appendChild(trow);
 
     var heading = new Array();
-    heading[0] = "Company";
-    heading[1] = "Position";
-    heading[2] = "Status";
+    if (userType == 's'){
+        heading[0] = "Company";
+        heading[1] = "Position";
+        heading[2] = "Status";    
+    } else {
+        heading[0] = "Student";
+        heading[1] = "Company";
+        heading[2] = "Status";
 
+    }
+    
     for (i = 0; i < heading.length; i++) {
         var th = document.createElement('TH')
         th.appendChild(document.createTextNode(heading[i]));
@@ -138,66 +145,124 @@ function populateApplicationTable(studentId) {
 
     myTableDiv.appendChild(table);
 
-    var student;
+    if (userType == 's'){
+        var student;
 
-    for (var i = 0; i < allStudents.length; i++) {
-        if (this.allStudents[i].sid == studentId) {
+        for (var i = 0; i < allStudents.length; i++) {
+            if (this.allStudents[i].sid == Id) {
 
-            student = allStudents[i];
+                student = allStudents[i];
 
-        }
-    }
-
-    console.log(student);
-
-    var myTable = document.getElementById("theContent");
-    var table2 = document.createElement('TABLE');
-    var tableBody = document.createElement('TBODY');
-    //console.log(student.companies.length);
-    //console.log(student.companies[0].length);
-    if (student.applications != null) {
-        console.log("if statement reached");
-        console.log(student.applications.length);
-        for (i = 0; i < student.applications.length; i++) {
-            console.log("inside first for loop");
-            var th1 = document.createElement('TH');
-            var th2 = document.createElement('TH');
-            var th3 = document.createElement('TH');
-            var tr = document.createElement('TR');
-            console.log(student.applications[i]);
-            console.log(student.applications[i].appStatus);
-            console.log(student.applications[i].positionTitle);
-
-            th2.appendChild(document.createTextNode(student.applications[i].positionTitle));
-            th3.appendChild(document.createTextNode(student.applications[i].appStatus));
-            //get companyName
-            var compName;
-            for (j = 0; j < allCompanies.length; j++) {
-                if (allCompanies[j].id == student.applications[i].companyId) {
-                    compName = allCompanies[i].name;
-                    console.log(compName);
-                }
             }
-            th1.appendChild(document.createTextNode(compName));
-
-            tr.appendChild(th1);
-            tr.appendChild(th2);
-            tr.appendChild(th3);
-            tableBody.appendChild(tr);
         }
-        table2.appendChild(tableBody);
-        myTable.appendChild(table2);
-    } else {
-        var tr = document.createElement('TR');
-        var th = document.createElement('TH');
 
-        th.appendChild(document.createTextNode("No current applications"));
-        tr.appendChild(th);
-        tableBody.appendChild(tr);
-        table2.appendChild(tableBody);
-        myTable.appendChild(table2);
+        console.log(student);
+        var myTable = document.getElementById("theContent");
+        var table2 = document.createElement('TABLE');
+        var tableBody = document.createElement('TBODY');
+   
+        if (student.applications != null) {
+            console.log("if statement reached");
+            console.log(student.applications.length);
+            for (i = 0; i < student.applications.length; i++) {
+                console.log("inside first for loop");
+                var th1 = document.createElement('TH');
+                var th2 = document.createElement('TH');
+                var th3 = document.createElement('TH');
+                var tr = document.createElement('TR');
+                console.log(student.applications[i]);
+                console.log(student.applications[i].appStatus);
+                console.log(student.applications[i].positionTitle);
+
+                th2.appendChild(document.createTextNode(student.applications[i].positionTitle));
+                th3.appendChild(document.createTextNode(student.applications[i].appStatus));
+                //get companyName
+                var compName;
+                for (j = 0; j < allCompanies.length; j++) {
+                    if (allCompanies[j].id == student.applications[i].companyId) {
+                        compName = allCompanies[j].name;
+                        console.log(compName);
+                    }
+                }
+                th1.appendChild(document.createTextNode(compName));
+
+                tr.appendChild(th1);
+                tr.appendChild(th2);
+                tr.appendChild(th3);
+                tableBody.appendChild(tr);
+            }
+            table2.appendChild(tableBody);
+            myTable.appendChild(table2);
+        } else {
+            var tr = document.createElement('TR');
+            var th = document.createElement('TH');
+
+            th.appendChild(document.createTextNode("No current applications"));
+            tr.appendChild(th);
+            tableBody.appendChild(tr);
+            table2.appendChild(tableBody);
+            myTable.appendChild(table2);
+
+        }
 
     }
+    else {
+        var tutor;
+        
+        for (var i = 0; i < allTutors.length; i++) {
+            if (this.allTutors[i].tutorId == Id) {
+
+                tutor = allTutors[i];
+
+            }
+        }
+        console.log(tutor);
+        var myTable = document.getElementById("theContent");
+        var table2 = document.createElement('TABLE');
+        var tableBody = document.createElement('TBODY');
+   
+        if (tutor.mentees != null) {
+            console.log("if statement reached");
+            console.log(tutor.mentees.length);
+            for (i = 0; i < tutor.mentees.length; i++) {
+                console.log("inside first for loop");
+                var th1 = document.createElement('TH');
+                var th2 = document.createElement('TH');
+                var th3 = document.createElement('TH');
+                var tr = document.createElement('TR');
+                console.log(tutor.mentees[i]);
+               
+
+                th2.appendChild(document.createTextNode(tutor.mentees[i].companyName));
+                th3.appendChild(document.createTextNode(tutor.mentees[i].date));
+                
+                th1.appendChild(document.createTextNode(tutor.mentees[i].studentName));
+
+                tr.appendChild(th1);
+                tr.appendChild(th2);
+                tr.appendChild(th3);
+                tableBody.appendChild(tr);
+            }
+            table2.appendChild(tableBody);
+            myTable.appendChild(table2);
+        } else {
+            var tr = document.createElement('TR');
+            var th = document.createElement('TH');
+
+            th.appendChild(document.createTextNode("No current applications"));
+            tr.appendChild(th);
+            tableBody.appendChild(tr);
+            table2.appendChild(tableBody);
+            myTable.appendChild(table2);
+
+        }
+
+
+        
+
+
+    }
+    
 
 }
 
@@ -291,6 +356,8 @@ window.onload = function() {
         console.log(tutorId);
 
         populateSidebar(tutorId);
+
+        populateApplicationTable(tutorId);
 
         populateOpenings();
 
