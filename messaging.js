@@ -99,6 +99,7 @@ function replyMessage(recepientId, sType, textarea){
 		for(var i = 0; i < allStudents.length; i++){
 			if(allStudents[i].sid == recepientId){
 				allStudents[i].mailing.push(newMessage);
+				localStorage.setItem('allStudents', JSON.stringify(allStudents));
 				break;
 			}
 		}
@@ -109,6 +110,7 @@ function replyMessage(recepientId, sType, textarea){
 				allCompanies[i].mailing.push(newMessage);
 				console.log("Reply Sent!");
 				console.log(allCompanies);
+				localStorage.setItem('allCompanies', JSON.stringify(allCompanies));
 				break;	
 			}
 		}
@@ -117,6 +119,7 @@ function replyMessage(recepientId, sType, textarea){
 		for(var i = 0; i < allCompanies.length; i++){
 			if(allTutors[i].tutorId == recepientId){
 				allTutors[i].mailing.push(newMessage);
+				localStorage.setItem('allTutors', JSON.stringify(allTutors));
 				break;	
 			}
 		}	
