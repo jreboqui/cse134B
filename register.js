@@ -116,6 +116,7 @@ function onClickSave(){
                 console.log("studentId: " + studentId);
                 this.addStudent(name, studentId, "", "", "", "", "", "", username, pwd, "");
                 console.log(allStudents);
+                localStorage.setItem("userId", studentId);
                 localStorage.setItem("userType", type);
                 localStorage.setItem('allStudents',JSON.stringify(allStudents));
                 alert("Profile Created");
@@ -135,6 +136,7 @@ function onClickSave(){
                 tutorId = allTutors.length + 1;
                 this.addTutor(username, pwd, name, tutorId, "", "", "", "", "", "", "");
                 console.log(allTutors);
+                localStorage.setItem("userId", tutorId);
                 localStorage.setItem("userType", type);
                 localStorage.setItem('allTutors',JSON.stringify(allTutors));
                 alert("Profile Created");
@@ -155,6 +157,7 @@ function onClickSave(){
                 console.log()
                 this.addCompany(username, pwd, name, companyId, "", "", "", "", "", "", "", "", "");
                 console.log(allCompanies);
+                localStorage.setItem("userId", companyId);
                 localStorage.setItem("userType", type);
                 localStorage.setItem('allCompanies',JSON.stringify(allCompanies));
                 alert("Profile Created");
