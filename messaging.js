@@ -202,6 +202,81 @@ function populateInbox(){
 
 }
 
+function sendNewMessage(recepientId, recepientType, message){
+	// console.log(recepientId);
+	// console.log(sType);
+	// console.log(message);
+
+	var newMessage = Object.create(mail);
+	newMessage.senderId = userId;
+	newMessage.senderType = userType;
+	newMessage.message = message;
+
+	if(recepientType == "s"){
+		for(var i = 0; i < allStudents.length; i++){
+			if(allStudents[i].sid == recepientId){
+				allStudents[i].mailing.push(newMessage);
+				localStorage.setItem('allStudents', JSON.stringify(allStudents));
+				break;
+			}
+		}
+	}
+	else if(recepientType == "c"){
+		for(var i = 0; i < allCompanies.length; i++){
+			if(allCompanies[i].id == recepientId){
+				allCompanies[i].mailing.push(newMessage);
+				console.log("Reply Sent!");
+				console.log(allCompanies);
+				localStorage.setItem('allCompanies', JSON.stringify(allCompanies));
+				break;	
+			}
+		}
+	}
+	else{
+		for(var i = 0; i < allCompanies.length; i++){
+			if(allTutors[i].tutorId == recepientId){
+				allTutors[i].mailing.push(newMessage);
+				localStorage.setItem('allTutors', JSON.stringify(allTutors));
+				break;	
+			}
+		}	
+	}
+
+	alert("Message Sent!");
+
+}
+
+function createOption(ddl, text, value) {
+        var opt = document.createElement('option');
+        opt.value = value;
+        opt.text = text;
+        ddl.options.add(opt);
+}
+
+function populateSendTo(type,to){
+	if(type.value == 's'){
+		to.options.length = 0;
+		for(var i = 0; i < allStudents.length; i++){
+			createOption(to,allStudents[i].name,allStudents[i].sid);
+		}
+	}
+	else if(type.value == 'c'){
+		to.options.length = 0;
+		for(var i = 0; i < allCompanies.length; i++){
+			createOption(to,allCompanies[i].name,allCompanies[i].id);
+		}		
+	}
+	else if(type.value == 't'){
+		to.options.length = 0;
+		for(var i = 0; i < allTutors.length; i++){
+			createOption(to,allTutors[i].name,allTutors[i].tutorId);
+		}	
+	}
+	else{
+		to.options.length = 0;
+	}
+}
+
 
 function getParameterByName(name, url) {
 	    if (!url) url = window.location.href;

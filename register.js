@@ -22,7 +22,7 @@ function addStudent(name, sid, school, year, major, GPA, minor, Pic, username, p
     this.allStudents.push(newStudent);
 }
 
-function addTutor(name, tutorId, school, year, major, GPA, minor, Pic, username, password) {
+function addTutor(username, password, name, tutorId, school, year, major, GPA, minor, intern, profilePic){
     var newTutor = Object.create(Tutor);
 
     newTutor.name = name;
@@ -32,10 +32,12 @@ function addTutor(name, tutorId, school, year, major, GPA, minor, Pic, username,
     newTutor.major = major;
     newTutor.GPA = GPA;
     newTutor.minor = minor;
-    newTutor.profilePic = Pic;
-    newTutor.mentees = [];
+    newTutor.profilePic = profilePic;
     newTutor.username = username;
     newTutor.password = password;
+    newTutor.intern = intern;
+    newTutor.mentees = [];
+    newTutor.mailing = [];
 
     this.allTutors.push(newTutor);
 }
@@ -114,9 +116,11 @@ function onClickSave(){
                 console.log("studentId: " + studentId);
                 this.addStudent(name, studentId, "", "", "", "", "", "", username, pwd, "");
                 console.log(allStudents);
+                localStorage.setItem("userType", type);
                 localStorage.setItem('allStudents',JSON.stringify(allStudents));
                 alert("Profile Created");
                 location.href="profile_page.html" + "?studentId=" + studentId;
+                break;
 				//window.location = "profile.html";	
 			}
 		}
@@ -129,11 +133,13 @@ function onClickSave(){
             }
             else {
                 tutorId = allTutors.length + 1;
-                this.addTutor(name, tutorId, "", "", "", "", "", "", username, pwd);
+                this.addTutor(username, pwd, name, tutorId, "", "", "", "", "", "", "");
                 console.log(allTutors);
+                localStorage.setItem("userType", type);
                 localStorage.setItem('allTutors',JSON.stringify(allTutors));
                 alert("Profile Created");
                 location.href="profile_page.html" + "?tutorId=" + tutorId;
+                break;
 				//window.location = "profile.html";	
 			}
 		}
@@ -146,13 +152,16 @@ function onClickSave(){
             }
             else {
                 companyId = allCompanies.length + 1;
+                console.log()
                 this.addCompany(username, pwd, name, companyId, "", "", "", "", "", "", "", "", "");
                 console.log(allCompanies);
+                localStorage.setItem("userType", type);
                 localStorage.setItem('allCompanies',JSON.stringify(allCompanies));
                 alert("Profile Created");
                 location.href="company.html" + "?companyId=" + companyId;
 				//window.location = "profile.html";	
-			}
+            }
+            break;
 		}
 	}
     

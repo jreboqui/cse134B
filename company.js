@@ -161,6 +161,11 @@ var userType;
 		userType = localStorage.getItem('userType');
 	}
 
+	function onClickEdit() {
+		var compId = getParameterByName("companyId");
+		location.href = "edit_company_profile.html" + "?companyId=" + compId;
+	}
+
 	window.onload = function() {
 		var compId = getParameterByName("companyId");
 		retrieveLocalData();
