@@ -217,14 +217,9 @@ function onClickEdit() {
 window.onload = function() {
 
     retrieveLocalData1();
-<<<<<<< HEAD
-    studentId = 1;
-    // studentId = getParameterByName('studentId');
-=======
     //studentId = 1;
     studentId = getParameterByName('studentId');
     console.log(studentId);
->>>>>>> 05efe7e49d26e629d3ab843c74603982ed7afe07
 
     populateSidebar(studentId);
 

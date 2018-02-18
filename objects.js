@@ -1,6 +1,6 @@
 var id, title, location, description, reqs, applicantsId;
 var bannerUrl, hq, size, industry, website, photosUrl, logoUrl, openPositions;
-var sid, name, school, year, major, GPA, minor, profilePic, status, positionId, positionTitle, companyId, appStatus, applications, username, password
+var sid, name, school, year, major, GPA, minor, profilePic, status, positionId, positionTitle, companyId, appStatus, intern, applications, username, password
 var tutorId, studentName, date, mentees
 var Positions = {
     id,
