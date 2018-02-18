@@ -19,16 +19,18 @@
 	    this.allCompanies.push(newComp);
 	}
 
-	function addApplication(studentId, companyId, positionTitle, appStatus) {
+	function addApplication(studentId, companyId, positionId, positionTitle, appStatus) {
 	    var newApp = Object.create(applicationInfo);
 	    newApp.companyId = companyId;
 	    newApp.positionTitle = positionTitle;
-	    newApp.appStatus = appStatus;
+	    newApp.positionId = positionId;
+	    newApp.appStatus = "Under Review";
 
 	    for (i = 0; i < allStudents.length; i++) {
 	        if (allStudents[i].sid == studentId) {
 	            allStudents[i].applications.push(newApp);
 	            console.log(allStudents[i].applications);
+	            console.log(allStudents[i]);
 	            break;
 	        }
 	    }
@@ -114,8 +116,8 @@
 	    this.addStudent("Michael Angelo", "2", "MIT", "2018", "Arts", "3.98", "none", "kpan.jpg", "ma", "ma12345");
 	    console.log("populateStudents done");
 
-	    this.addApplication("1", "1", "Software Engineering Intern", "Phase 1");
-	    this.addApplication("1", "1", "Data Science Intern", "Rejected");
+	    this.addApplication("1", "1", "1", "Software Engineering Intern", "Phase 1");
+	    this.addApplication("1", "1", "2", "Data Science Intern", "Rejected");
 	    console.log("added applications");
 
 	}

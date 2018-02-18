@@ -1,19 +1,21 @@
 var id, title, location, description, reqs, applicantsId;
 var bannerUrl, hq, size, industry, website, photosUrl, logoUrl, openPositions;
-var sid, name, school, year, major, GPA, minor, profilePic, status, positionTitle, companyId, appStatus, applications, username, password
-var tid, studentName, date, mentees
+var sid, name, school, year, major, GPA, minor, profilePic, status, positionId, positionTitle, companyId, appStatus, applications, username, password
+var tutorId, studentName, date, mentees
 var Positions = {
     id,
     title,
     location,
     description,
     reqs,
+    status,
     applicantsId //array
 };
 
 var applicationInfo = {
     companyId,
-    positionTitle, //array
+    positionTitle,
+    positionId, //array
     appStatus //array
 }
 
@@ -60,7 +62,7 @@ var Student = {
 }
 
 var Tutor = {
-    tid,
+    tutorId,
     name,
     school,
     year,
