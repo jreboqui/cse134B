@@ -51,68 +51,91 @@ function populateStudentProfile(studentId) {
     info.appendChild(status);
 }
 
-function setButtons(){
+function setButtons() {
     console.log("setButtons called");
-    if(userType != 'c'){
-        document.getElementById("offer").style.display='none';
-        document.getElementById("reject").style.display='none';
+    if (userType != 'c') {
+        document.getElementById("offer").style.display = 'none';
+        document.getElementById("reject").style.display = 'none';
     }
 
 }
 
-function populateOtherApplicants(companyId, jobId, studentId){
-	var list = document.getElementById('ul-applicants');
-	console.log("in populateOtherApplicants");
+function setProgress() {
+    console.log("setProgress called");
+    var pBar = document.getElementById('progressbar');
+    var img = document.getElementById('dropdown');
+    var value = img.options[img.selectedIndex].value;
+    console.log(value);
+    if (value == "s") {
+        pBar.setAttribute('src', "progress_screeninggreen.jpg");
+        pBar.setAttribute('height', '100px');
+        pBar.setAttribute('width', '500px');
+    } else if (value == 'i') {
+        pBar.setAttribute('src', "progress_interviewgreen.jpg");
+        pBar.setAttribute('height', '100px');
+        pBar.setAttribute('width', '500px');
+    } else if (value == 'r') {
+        pBar.setAttribute('src', "progress_reviewgreen.jpg");
+        pBar.setAttribute('height', '100px');
+        pBar.setAttribute('width', '500px');
+    } else {}
 
-	for(var i = 0; i < allStudents.length; i++){
-		console.log("i");
-		for(var j = 0; j < allStudents[i].applications.length; j++){
-			if(companyId == allStudents[i].applications[j].companyId && 
-				allStudents[i].applications[j].positionId == jobId){
-					console.log("inside");
-					var item = document.createElement('li');
-					var photo = document.createElement('img');
-					photo.setAttribute('src',allStudents[i].profilePic);
-					photo.setAttribute('alt','image');
-					photo.setAttribute('height','200px');
-					photo.setAttribute('width','200px');
-					//photo.setAttribute('href',"company_applicant.html?studentId=" +allStudents[i].sid+
-						//"&companyId" + companyId + "&jobId=" + jobId);
-					item.appendChild(photo);
-
-					var detail = document.createElement('h4curr');
-
-					var name = document.createTextNode(allStudents[i].name);
-					var br = document.createElement("br");
-					detail.appendChild(name);
-					detail.appendChild(br);
-
-					var school = document.createTextNode(allStudents[i].school);
-					var br = document.createElement("br");
-					detail.appendChild(school);
-					detail.appendChild(br);
-
-					var gpa = document.createTextNode("GPA: " + allStudents[i].GPA);
-					var br = document.createElement("br");
-					detail.appendChild(gpa);
-					detail.appendChild(br);
-
-					var a = document.createElement("a");
-					a.textContent = allStudents[i].applications[j].appStatus;
-					a.setAttribute('href',"company_applicant.html?studentId=" +allStudents[i].sid+
-						"&companyId" + companyId + "&jobId=" + jobId);
-					detail.appendChild(a);
-
-					item.appendChild(detail);
-					list.appendChild(item);
-					break;
-			}
-		}
-	}
 }
 
 
-function retrieveLocalData1(){
+function populateOtherApplicants(companyId, jobId, studentId) {
+    var list = document.getElementById('ul-applicants');
+    console.log("in populateOtherApplicants");
+
+    for (var i = 0; i < allStudents.length; i++) {
+        console.log("i");
+        for (var j = 0; j < allStudents[i].applications.length; j++) {
+            if (companyId == allStudents[i].applications[j].companyId &&
+                allStudents[i].applications[j].positionId == jobId) {
+                console.log("inside");
+                var item = document.createElement('li');
+                var photo = document.createElement('img');
+                photo.setAttribute('src', allStudents[i].profilePic);
+                photo.setAttribute('alt', 'image');
+                photo.setAttribute('height', '200px');
+                photo.setAttribute('width', '200px');
+                //photo.setAttribute('href',"company_applicant.html?studentId=" +allStudents[i].sid+
+                //"&companyId" + companyId + "&jobId=" + jobId);
+                item.appendChild(photo);
+
+                var detail = document.createElement('h4curr');
+
+                var name = document.createTextNode(allStudents[i].name);
+                var br = document.createElement("br");
+                detail.appendChild(name);
+                detail.appendChild(br);
+
+                var school = document.createTextNode(allStudents[i].school);
+                var br = document.createElement("br");
+                detail.appendChild(school);
+                detail.appendChild(br);
+
+                var gpa = document.createTextNode("GPA: " + allStudents[i].GPA);
+                var br = document.createElement("br");
+                detail.appendChild(gpa);
+                detail.appendChild(br);
+
+                var a = document.createElement("a");
+                a.textContent = allStudents[i].applications[j].appStatus;
+                a.setAttribute('href', "company_applicant.html?studentId=" + allStudents[i].sid +
+                    "&companyId" + companyId + "&jobId=" + jobId);
+                detail.appendChild(a);
+
+                item.appendChild(detail);
+                list.appendChild(item);
+                break;
+            }
+        }
+    }
+}
+
+
+function retrieveLocalData1() {
     var retrivedCompanies = localStorage.getItem('allCompanies');
     retrivedCompanies = JSON.parse(retrivedCompanies);
     allCompanies = retrivedCompanies;
