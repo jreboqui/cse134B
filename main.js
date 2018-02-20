@@ -83,15 +83,15 @@
 	}
 
 	function populateCompanies() {
-	    this.addCompany("recruiting@amazon.com", "amazon12345", "Amazon, Inc.", "1", "amazon.PNG", "Seattle, WA", "75000", ["E-Commerce", "Cloud Computing"], "amazon.com", ["amazon1.JPG", "amazon2.JPG", "amazon3.JPG", "amazon4.JPG", "amazon5.JPG", "amazon6.JPG"], "amazon.jpg",
+	    this.addCompany("recruiting@amazon.com", "amazon12345", "Amazon, Inc.", "1", "amazon-banner.PNG", "Seattle, WA", "75000", ["E-Commerce", "Cloud Computing"], "amazon.com", ["amazon1.JPG", "amazon2.JPG", "amazon3.JPG", "amazon4.JPG", "amazon5.JPG", "amazon6.JPG"], "amazon.jpg",
 	        "We pioneer", "We're a company of pioneers. It's our job to make bold bets, and we get our energy from inventing on behalf of customers. Success is measured against the possible, not the probable. For today’s pioneers, that’s exactly why there’s no place on Earth they’d rather build than Amazon.");
-	    this.addCompany("recruiting@salesforce.com", "salesforce12345", "Salesforce", "2", "Salesforce.PNG", "San Francisco, WA", "10000", ["Cloud Computing"],
-	        "Salesforce.com", ["salesforce1.JPG", "salesforce2.JPG", "salesforce3.JPG"], "salesforce_icon.png",
+	    this.addCompany("recruiting@salesforce.com", "salesforce12345", "Salesforce", "2", "salesforce-banner.PNG", "San Francisco, WA", "10000", ["Cloud Computing"],
+	        "Salesforce.com", ["salesforce1.JPG", "salesforce2.JPG", "salesforce3.JPG", "salesforce4.JPG", "salesforce5.JPG"], "salesforce_icon.png",
 	        "We pioneer", "We're a company of pioneers. It's our job to make bold bets, and we get our energy from inventing on behalf of customers. Success is measured against the possible, not the probable. For today’s pioneers, that’s exactly why there’s no place on Earth they’d rather build than Amazon.");
-	    this.addCompany("recruiting@google.com", "google12345", "Google", "3", "google.png", "Mountain View, CA", "74000", ["Internet Software, Computer Hardware"],
+	    this.addCompany("recruiting@google.com", "google12345", "Google", "3", "google-banner.PNG", "Mountain View, CA", "74000", ["Internet Software, Computer Hardware"],
 	        "google.com", ["google1.jpg", "google2.jpg", "google3.jpg", "google4.jpg", "google5.jpg"], "google_logo.jpg",
 	        "We pioneer", "We're a company of pioneers. It's our job to make bold bets, and we get our energy from inventing on behalf of customers. Success is measured against the possible, not the probable. For today’s pioneers, that’s exactly why there’s no place on Earth they’d rather build than Amazon.");
-	    this.addCompany("recruiting@microsoft.com", "microsoft12345", "Microsoft", "4", "microsoft.png", "Redmond, WA", "150000", ["Internet Software", "Consumer Goods", "Media & Entertainment"],
+	    this.addCompany("recruiting@microsoft.com", "microsoft12345", "Microsoft", "4", "microsoft-banner.PNG", "Redmond, WA", "150000", ["Internet Software", "Consumer Goods", "Media & Entertainment"],
 	        "microsoft.com", ["microsoft1.jpg", "microsoft2.jpg", "microsoft3.jpg", "microsoft4.jpg", "microsoft5.jpeg"], "microsoft_logo.jpg",
 	        "We pioneer", "We're a company of pioneers. It's our job to make bold bets, and we get our energy from inventing on behalf of customers. Success is measured against the possible, not the probable. For today’s pioneers, that’s exactly why there’s no place on Earth they’d rather build than Amazon.");
 
