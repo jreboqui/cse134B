@@ -179,7 +179,7 @@
 	    this.addStudent("Kevin Pansawira", "1", "UCSD", "2018", "Computer Science", "3.99", "none", "kpan.jpg", "kp", "kp12345", "SalesForce");
 	    this.addStudent("Michael Angelo", "2", "MIT", "2018", "Arts", "3.98", "none", "pp1.jpeg", "ma", "ma12345", "None");
 	    this.addStudent("Jang Nara ", "3", "Caltech", "2018", "Cogsci", "4.0", "none", "pp2.jpg", "jnara", "jn12345", "None");
-	    this.addStudent("Lemon Ginger", "4", "UCB", "2018", "Math", "3.7", "none", "pp1.jpg", "lg", "lg12345", "None");
+	    this.addStudent("Lemon Ginger", "4", "UCB", "2018", "Math", "3.7", "none", "pp2.jpg", "lg", "lg12345", "None");
 	    this.addStudent("Ariwasnap Nivek", "5", "UCI", "2019", "Computer Science", "4.0", "none", "intern1.jpg", "arNiv", "pk123", "Hooli");
 
 	    console.log("populateStudents done");

@@ -5,16 +5,17 @@ var userId;
 var jobTitle;
 
 function setJumbotronBackground(companyId){
-	var banner = document.getElementsByClassName("jumbotron");
-	console.log(banner);
-	var bannerUrl = ""
-	for(var i = 0; i < allCompanies.length; i++){
-		if(this.allCompanies[i].id == companyId){
-			bannerUrl = allCompanies[i].bannerUrl;
-			break;
+		var banner = document.getElementById("id-banner");
+		//console.log(banner);
+		var bannerUrl = "";
+		for(var i = 0; i < allCompanies.length; i++){
+			if(this.allCompanies[i].id == companyId){
+				bannerUrl = allCompanies[i].bannerUrl;
+				break;
+			}
 		}
-	}
-	banner.backgroundImage = "url('amazon-banner.PNG')";
+		banner.setAttribute("class","jumbotron");
+		banner.setAttribute("style","background-image:url('" + bannerUrl + "')");
 }
 
 
